@@ -1,0 +1,1818 @@
+
+Tetris test2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  00000dec  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000d78  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000001c  00800100  00800100  00000dec  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000dec  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000e1c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000000e0  00000000  00000000  00000e58  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00001bba  00000000  00000000  00000f38  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000832  00000000  00000000  00002af2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000d54  00000000  00000000  00003324  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000254  00000000  00000000  00004078  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000053a  00000000  00000000  000042cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000cd2  00000000  00000000  00004806  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000100  00000000  00000000  000054d8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   8:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  10:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  14:	0c 94 94 06 	jmp	0xd28	; 0xd28 <__vector_5>
+  18:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  1c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  20:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  24:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  28:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  2c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  30:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  34:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  38:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  3c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  40:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  44:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  48:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  4c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  50:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  54:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  58:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  5c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  60:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  64:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_clear_bss>:
+  74:	21 e0       	ldi	r18, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	01 c0       	rjmp	.+2      	; 0x7e <.do_clear_bss_start>
+
+0000007c <.do_clear_bss_loop>:
+  7c:	1d 92       	st	X+, r1
+
+0000007e <.do_clear_bss_start>:
+  7e:	ac 31       	cpi	r26, 0x1C	; 28
+  80:	b2 07       	cpc	r27, r18
+  82:	e1 f7       	brne	.-8      	; 0x7c <.do_clear_bss_loop>
+  84:	0e 94 5f 06 	call	0xcbe	; 0xcbe <main>
+  88:	0c 94 ba 06 	jmp	0xd74	; 0xd74 <_exit>
+
+0000008c <__bad_interrupt>:
+  8c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000090 <MAX7219_write>:
+		for (int y=0; y<8; y++)
+		{
+			MAX7219_set_pixel(x, y,true);
+		}
+	}
+}
+  90:	00 00       	nop
+  92:	20 e0       	ldi	r18, 0x00	; 0
+  94:	12 c0       	rjmp	.+36     	; 0xba <MAX7219_write+0x2a>
+  96:	95 b1       	in	r25, 0x05	; 5
+  98:	9d 7f       	andi	r25, 0xFD	; 253
+  9a:	95 b9       	out	0x05, r25	; 5
+  9c:	00 00       	nop
+  9e:	88 23       	and	r24, r24
+  a0:	24 f4       	brge	.+8      	; 0xaa <MAX7219_write+0x1a>
+  a2:	95 b1       	in	r25, 0x05	; 5
+  a4:	91 60       	ori	r25, 0x01	; 1
+  a6:	95 b9       	out	0x05, r25	; 5
+  a8:	03 c0       	rjmp	.+6      	; 0xb0 <MAX7219_write+0x20>
+  aa:	95 b1       	in	r25, 0x05	; 5
+  ac:	9e 7f       	andi	r25, 0xFE	; 254
+  ae:	95 b9       	out	0x05, r25	; 5
+  b0:	95 b1       	in	r25, 0x05	; 5
+  b2:	92 60       	ori	r25, 0x02	; 2
+  b4:	95 b9       	out	0x05, r25	; 5
+  b6:	2f 5f       	subi	r18, 0xFF	; 255
+  b8:	88 0f       	add	r24, r24
+  ba:	28 30       	cpi	r18, 0x08	; 8
+  bc:	60 f3       	brcs	.-40     	; 0x96 <MAX7219_write+0x6>
+  be:	08 95       	ret
+
+000000c0 <MAX7219_send>:
+  c0:	cf 93       	push	r28
+  c2:	c6 2f       	mov	r28, r22
+  c4:	95 b1       	in	r25, 0x05	; 5
+  c6:	94 60       	ori	r25, 0x04	; 4
+  c8:	95 b9       	out	0x05, r25	; 5
+  ca:	0e 94 48 00 	call	0x90	; 0x90 <MAX7219_write>
+  ce:	8c 2f       	mov	r24, r28
+  d0:	0e 94 48 00 	call	0x90	; 0x90 <MAX7219_write>
+  d4:	85 b1       	in	r24, 0x05	; 5
+  d6:	8b 7f       	andi	r24, 0xFB	; 251
+  d8:	85 b9       	out	0x05, r24	; 5
+  da:	00 00       	nop
+  dc:	85 b1       	in	r24, 0x05	; 5
+  de:	84 60       	ori	r24, 0x04	; 4
+  e0:	85 b9       	out	0x05, r24	; 5
+  e2:	cf 91       	pop	r28
+  e4:	08 95       	ret
+
+000000e6 <MAX7219_init>:
+  e6:	84 b1       	in	r24, 0x04	; 4
+  e8:	87 60       	ori	r24, 0x07	; 7
+  ea:	84 b9       	out	0x04, r24	; 4
+  ec:	60 e0       	ldi	r22, 0x00	; 0
+  ee:	89 e0       	ldi	r24, 0x09	; 9
+  f0:	0e 94 60 00 	call	0xc0	; 0xc0 <MAX7219_send>
+  f4:	67 e0       	ldi	r22, 0x07	; 7
+  f6:	8b e0       	ldi	r24, 0x0B	; 11
+  f8:	0e 94 60 00 	call	0xc0	; 0xc0 <MAX7219_send>
+  fc:	6f e0       	ldi	r22, 0x0F	; 15
+  fe:	8a e0       	ldi	r24, 0x0A	; 10
+ 100:	0e 94 60 00 	call	0xc0	; 0xc0 <MAX7219_send>
+ 104:	60 e0       	ldi	r22, 0x00	; 0
+ 106:	8f e0       	ldi	r24, 0x0F	; 15
+ 108:	0e 94 60 00 	call	0xc0	; 0xc0 <MAX7219_send>
+ 10c:	61 e0       	ldi	r22, 0x01	; 1
+ 10e:	8c e0       	ldi	r24, 0x0C	; 12
+ 110:	0e 94 60 00 	call	0xc0	; 0xc0 <MAX7219_send>
+ 114:	08 95       	ret
+
+00000116 <MAX7219_set_pixel>:
+ 116:	88 30       	cpi	r24, 0x08	; 8
+ 118:	18 f5       	brcc	.+70     	; 0x160 <MAX7219_set_pixel+0x4a>
+ 11a:	68 30       	cpi	r22, 0x08	; 8
+ 11c:	08 f5       	brcc	.+66     	; 0x160 <MAX7219_set_pixel+0x4a>
+ 11e:	21 e0       	ldi	r18, 0x01	; 1
+ 120:	30 e0       	ldi	r19, 0x00	; 0
+ 122:	02 c0       	rjmp	.+4      	; 0x128 <MAX7219_set_pixel+0x12>
+ 124:	22 0f       	add	r18, r18
+ 126:	33 1f       	adc	r19, r19
+ 128:	6a 95       	dec	r22
+ 12a:	e2 f7       	brpl	.-8      	; 0x124 <MAX7219_set_pixel+0xe>
+ 12c:	44 23       	and	r20, r20
+ 12e:	41 f0       	breq	.+16     	; 0x140 <MAX7219_set_pixel+0x2a>
+ 130:	e8 2f       	mov	r30, r24
+ 132:	f0 e0       	ldi	r31, 0x00	; 0
+ 134:	ee 5f       	subi	r30, 0xFE	; 254
+ 136:	fe 4f       	sbci	r31, 0xFE	; 254
+ 138:	90 81       	ld	r25, Z
+ 13a:	29 2b       	or	r18, r25
+ 13c:	20 83       	st	Z, r18
+ 13e:	08 c0       	rjmp	.+16     	; 0x150 <MAX7219_set_pixel+0x3a>
+ 140:	e8 2f       	mov	r30, r24
+ 142:	f0 e0       	ldi	r31, 0x00	; 0
+ 144:	ee 5f       	subi	r30, 0xFE	; 254
+ 146:	fe 4f       	sbci	r31, 0xFE	; 254
+ 148:	20 95       	com	r18
+ 14a:	90 81       	ld	r25, Z
+ 14c:	29 23       	and	r18, r25
+ 14e:	20 83       	st	Z, r18
+ 150:	e8 2f       	mov	r30, r24
+ 152:	f0 e0       	ldi	r31, 0x00	; 0
+ 154:	ee 5f       	subi	r30, 0xFE	; 254
+ 156:	fe 4f       	sbci	r31, 0xFE	; 254
+ 158:	60 81       	ld	r22, Z
+ 15a:	8f 5f       	subi	r24, 0xFF	; 255
+ 15c:	0e 94 60 00 	call	0xc0	; 0xc0 <MAX7219_send>
+ 160:	08 95       	ret
+
+00000162 <MAX7219_set_row>:
+ 162:	88 30       	cpi	r24, 0x08	; 8
+ 164:	40 f4       	brcc	.+16     	; 0x176 <MAX7219_set_row+0x14>
+ 166:	e8 2f       	mov	r30, r24
+ 168:	f0 e0       	ldi	r31, 0x00	; 0
+ 16a:	ee 5f       	subi	r30, 0xFE	; 254
+ 16c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 16e:	60 83       	st	Z, r22
+ 170:	8f 5f       	subi	r24, 0xFF	; 255
+ 172:	0e 94 60 00 	call	0xc0	; 0xc0 <MAX7219_send>
+ 176:	08 95       	ret
+
+00000178 <MAX7219_set_column>:
+ 178:	1f 93       	push	r17
+ 17a:	cf 93       	push	r28
+ 17c:	df 93       	push	r29
+ 17e:	88 30       	cpi	r24, 0x08	; 8
+ 180:	b0 f4       	brcc	.+44     	; 0x1ae <MAX7219_set_column+0x36>
+ 182:	16 2f       	mov	r17, r22
+ 184:	d8 2f       	mov	r29, r24
+ 186:	c0 e0       	ldi	r28, 0x00	; 0
+ 188:	10 c0       	rjmp	.+32     	; 0x1aa <MAX7219_set_column+0x32>
+ 18a:	21 2f       	mov	r18, r17
+ 18c:	30 e0       	ldi	r19, 0x00	; 0
+ 18e:	0c 2e       	mov	r0, r28
+ 190:	02 c0       	rjmp	.+4      	; 0x196 <MAX7219_set_column+0x1e>
+ 192:	35 95       	asr	r19
+ 194:	27 95       	ror	r18
+ 196:	0a 94       	dec	r0
+ 198:	e2 f7       	brpl	.-8      	; 0x192 <MAX7219_set_column+0x1a>
+ 19a:	41 e0       	ldi	r20, 0x01	; 1
+ 19c:	20 ff       	sbrs	r18, 0
+ 19e:	40 e0       	ldi	r20, 0x00	; 0
+ 1a0:	6d 2f       	mov	r22, r29
+ 1a2:	8c 2f       	mov	r24, r28
+ 1a4:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+ 1a8:	cf 5f       	subi	r28, 0xFF	; 255
+ 1aa:	c8 30       	cpi	r28, 0x08	; 8
+ 1ac:	70 f3       	brcs	.-36     	; 0x18a <MAX7219_set_column+0x12>
+ 1ae:	df 91       	pop	r29
+ 1b0:	cf 91       	pop	r28
+ 1b2:	1f 91       	pop	r17
+ 1b4:	08 95       	ret
+
+000001b6 <MAX7219_clear>:
+ 1b6:	cf 93       	push	r28
+ 1b8:	c0 e0       	ldi	r28, 0x00	; 0
+ 1ba:	12 c0       	rjmp	.+36     	; 0x1e0 <MAX7219_clear+0x2a>
+ 1bc:	8c 2f       	mov	r24, r28
+ 1be:	90 e0       	ldi	r25, 0x00	; 0
+ 1c0:	fc 01       	movw	r30, r24
+ 1c2:	ee 5f       	subi	r30, 0xFE	; 254
+ 1c4:	fe 4f       	sbci	r31, 0xFE	; 254
+ 1c6:	20 81       	ld	r18, Z
+ 1c8:	22 23       	and	r18, r18
+ 1ca:	49 f0       	breq	.+18     	; 0x1de <MAX7219_clear+0x28>
+ 1cc:	fc 01       	movw	r30, r24
+ 1ce:	ee 5f       	subi	r30, 0xFE	; 254
+ 1d0:	fe 4f       	sbci	r31, 0xFE	; 254
+ 1d2:	10 82       	st	Z, r1
+ 1d4:	60 e0       	ldi	r22, 0x00	; 0
+ 1d6:	81 e0       	ldi	r24, 0x01	; 1
+ 1d8:	8c 0f       	add	r24, r28
+ 1da:	0e 94 60 00 	call	0xc0	; 0xc0 <MAX7219_send>
+ 1de:	cf 5f       	subi	r28, 0xFF	; 255
+ 1e0:	c8 30       	cpi	r28, 0x08	; 8
+ 1e2:	60 f3       	brcs	.-40     	; 0x1bc <MAX7219_clear+0x6>
+ 1e4:	cf 91       	pop	r28
+ 1e6:	08 95       	ret
+
+000001e8 <USART_Init>:
+
+unsigned char text;
+void USART_Init()
+{
+	// Set Baud Rate
+	UBRR0H = BAUD_PRESCALER >> 8;
+ 1e8:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7f80c5>
+	UBRR0L = BAUD_PRESCALER;
+ 1ec:	83 e3       	ldi	r24, 0x33	; 51
+ 1ee:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7f80c4>
+	// Set Frame Format
+	UCSR0C = ASYNCHRONOUS | PARITY_MODE | STOP_BIT | DATA_BIT;
+ 1f2:	86 e0       	ldi	r24, 0x06	; 6
+ 1f4:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7f80c2>
+	// Enable Receiver and Transmitter
+	UCSR0B = (1<<RXEN0) | (1<<TXEN0);
+ 1f8:	88 e1       	ldi	r24, 0x18	; 24
+ 1fa:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7f80c1>
+ 1fe:	08 95       	ret
+
+00000200 <USART_Receive>:
+}
+char USART_Receive()
+{
+	uint8_t DataByte;
+	while (( UCSR0A & (1<<RXC0)) == 0) {}; // Do nothing until data have been received
+ 200:	80 91 c0 00 	lds	r24, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7f80c0>
+ 204:	88 23       	and	r24, r24
+ 206:	e4 f7       	brge	.-8      	; 0x200 <USART_Receive>
+	DataByte = UDR0 ;
+ 208:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+	return DataByte;
+}
+ 20c:	08 95       	ret
+
+0000020e <USART_Transmit>:
+void USART_Transmit(uint8_t DataByte)
+{
+	while (( UCSR0A & (1<<UDRE0)) == 0) {}; // Do nothing until UDR is ready
+ 20e:	90 91 c0 00 	lds	r25, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7f80c0>
+ 212:	95 ff       	sbrs	r25, 5
+ 214:	fc cf       	rjmp	.-8      	; 0x20e <USART_Transmit>
+	UDR0 = DataByte;
+ 216:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+ 21a:	08 95       	ret
+
+0000021c <name_display>:
+};
+
+void name_display()
+{
+
+	  	MAX7219_set_row(2,0b01111100); //T   7,6,5,4,3,2,1,0
+ 21c:	6c e7       	ldi	r22, 0x7C	; 124
+ 21e:	82 e0       	ldi	r24, 0x02	; 2
+ 220:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+	  	MAX7219_set_column(4,0b01111100);  
+ 224:	6c e7       	ldi	r22, 0x7C	; 124
+ 226:	84 e0       	ldi	r24, 0x04	; 4
+ 228:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 22c:	2f e3       	ldi	r18, 0x3F	; 63
+ 22e:	82 e4       	ldi	r24, 0x42	; 66
+ 230:	9f e0       	ldi	r25, 0x0F	; 15
+ 232:	21 50       	subi	r18, 0x01	; 1
+ 234:	80 40       	sbci	r24, 0x00	; 0
+ 236:	90 40       	sbci	r25, 0x00	; 0
+ 238:	e1 f7       	brne	.-8      	; 0x232 <name_display+0x16>
+ 23a:	00 c0       	rjmp	.+0      	; 0x23c <name_display+0x20>
+ 23c:	00 00       	nop
+	  	_delay_ms(5000);
+	  	MAX7219_clear();
+ 23e:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+
+		MAX7219_set_column(6,0b01000100); //E
+ 242:	64 e4       	ldi	r22, 0x44	; 68
+ 244:	86 e0       	ldi	r24, 0x06	; 6
+ 246:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+		MAX7219_set_column(5,0b01000100);
+ 24a:	64 e4       	ldi	r22, 0x44	; 68
+ 24c:	85 e0       	ldi	r24, 0x05	; 5
+ 24e:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+		MAX7219_set_column(4,0b01010100);
+ 252:	64 e5       	ldi	r22, 0x54	; 84
+ 254:	84 e0       	ldi	r24, 0x04	; 4
+ 256:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+		MAX7219_set_column(3,0b01010100);
+ 25a:	64 e5       	ldi	r22, 0x54	; 84
+ 25c:	83 e0       	ldi	r24, 0x03	; 3
+ 25e:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+		MAX7219_set_column(2,0b01111100);
+ 262:	6c e7       	ldi	r22, 0x7C	; 124
+ 264:	82 e0       	ldi	r24, 0x02	; 2
+ 266:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+ 26a:	2f e3       	ldi	r18, 0x3F	; 63
+ 26c:	82 e4       	ldi	r24, 0x42	; 66
+ 26e:	9f e0       	ldi	r25, 0x0F	; 15
+ 270:	21 50       	subi	r18, 0x01	; 1
+ 272:	80 40       	sbci	r24, 0x00	; 0
+ 274:	90 40       	sbci	r25, 0x00	; 0
+ 276:	e1 f7       	brne	.-8      	; 0x270 <name_display+0x54>
+ 278:	00 c0       	rjmp	.+0      	; 0x27a <name_display+0x5e>
+ 27a:	00 00       	nop
+		_delay_ms(5000);
+		MAX7219_clear();
+ 27c:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+	
+	
+	  	MAX7219_set_row(2,0b01111100); //T
+ 280:	6c e7       	ldi	r22, 0x7C	; 124
+ 282:	82 e0       	ldi	r24, 0x02	; 2
+ 284:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+	  	MAX7219_set_column(4,0b01111100);
+ 288:	6c e7       	ldi	r22, 0x7C	; 124
+ 28a:	84 e0       	ldi	r24, 0x04	; 4
+ 28c:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+ 290:	2f e3       	ldi	r18, 0x3F	; 63
+ 292:	82 e4       	ldi	r24, 0x42	; 66
+ 294:	9f e0       	ldi	r25, 0x0F	; 15
+ 296:	21 50       	subi	r18, 0x01	; 1
+ 298:	80 40       	sbci	r24, 0x00	; 0
+ 29a:	90 40       	sbci	r25, 0x00	; 0
+ 29c:	e1 f7       	brne	.-8      	; 0x296 <name_display+0x7a>
+ 29e:	00 c0       	rjmp	.+0      	; 0x2a0 <name_display+0x84>
+ 2a0:	00 00       	nop
+	  	_delay_ms(5000);
+	  	MAX7219_clear();
+ 2a2:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+	
+		MAX7219_set_row(2,0b00111100); //R
+ 2a6:	6c e3       	ldi	r22, 0x3C	; 60
+ 2a8:	82 e0       	ldi	r24, 0x02	; 2
+ 2aa:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		MAX7219_set_row(4,0b00111100);
+ 2ae:	6c e3       	ldi	r22, 0x3C	; 60
+ 2b0:	84 e0       	ldi	r24, 0x04	; 4
+ 2b2:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		MAX7219_set_column(2,0b01111100);
+ 2b6:	6c e7       	ldi	r22, 0x7C	; 124
+ 2b8:	82 e0       	ldi	r24, 0x02	; 2
+ 2ba:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+		MAX7219_set_column(6,0b01101000);
+ 2be:	68 e6       	ldi	r22, 0x68	; 104
+ 2c0:	86 e0       	ldi	r24, 0x06	; 6
+ 2c2:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+ 2c6:	2f e3       	ldi	r18, 0x3F	; 63
+ 2c8:	82 e4       	ldi	r24, 0x42	; 66
+ 2ca:	9f e0       	ldi	r25, 0x0F	; 15
+ 2cc:	21 50       	subi	r18, 0x01	; 1
+ 2ce:	80 40       	sbci	r24, 0x00	; 0
+ 2d0:	90 40       	sbci	r25, 0x00	; 0
+ 2d2:	e1 f7       	brne	.-8      	; 0x2cc <name_display+0xb0>
+ 2d4:	00 c0       	rjmp	.+0      	; 0x2d6 <name_display+0xba>
+ 2d6:	00 00       	nop
+		_delay_ms(5000);
+		MAX7219_clear();
+ 2d8:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+	
+		MAX7219_set_row(2,0b00111000);  //I
+ 2dc:	68 e3       	ldi	r22, 0x38	; 56
+ 2de:	82 e0       	ldi	r24, 0x02	; 2
+ 2e0:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		MAX7219_set_row(6,0b00111000);
+ 2e4:	68 e3       	ldi	r22, 0x38	; 56
+ 2e6:	86 e0       	ldi	r24, 0x06	; 6
+ 2e8:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		MAX7219_set_column(4,0b01111100);
+ 2ec:	6c e7       	ldi	r22, 0x7C	; 124
+ 2ee:	84 e0       	ldi	r24, 0x04	; 4
+ 2f0:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+ 2f4:	2f e3       	ldi	r18, 0x3F	; 63
+ 2f6:	82 e4       	ldi	r24, 0x42	; 66
+ 2f8:	9f e0       	ldi	r25, 0x0F	; 15
+ 2fa:	21 50       	subi	r18, 0x01	; 1
+ 2fc:	80 40       	sbci	r24, 0x00	; 0
+ 2fe:	90 40       	sbci	r25, 0x00	; 0
+ 300:	e1 f7       	brne	.-8      	; 0x2fa <name_display+0xde>
+ 302:	00 c0       	rjmp	.+0      	; 0x304 <name_display+0xe8>
+ 304:	00 00       	nop
+		_delay_ms(5000);
+		MAX7219_clear();
+ 306:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+	
+		MAX7219_set_row(2,0b01111000); //S
+ 30a:	68 e7       	ldi	r22, 0x78	; 120
+ 30c:	82 e0       	ldi	r24, 0x02	; 2
+ 30e:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		MAX7219_set_row(3,0b00000100);
+ 312:	64 e0       	ldi	r22, 0x04	; 4
+ 314:	83 e0       	ldi	r24, 0x03	; 3
+ 316:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		MAX7219_set_row(4,0b00111000);
+ 31a:	68 e3       	ldi	r22, 0x38	; 56
+ 31c:	84 e0       	ldi	r24, 0x04	; 4
+ 31e:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		MAX7219_set_row(5,0b01000000);
+ 322:	60 e4       	ldi	r22, 0x40	; 64
+ 324:	85 e0       	ldi	r24, 0x05	; 5
+ 326:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		MAX7219_set_row(6,0b00111100);
+ 32a:	6c e3       	ldi	r22, 0x3C	; 60
+ 32c:	86 e0       	ldi	r24, 0x06	; 6
+ 32e:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+ 332:	2f e3       	ldi	r18, 0x3F	; 63
+ 334:	82 e4       	ldi	r24, 0x42	; 66
+ 336:	9f e0       	ldi	r25, 0x0F	; 15
+ 338:	21 50       	subi	r18, 0x01	; 1
+ 33a:	80 40       	sbci	r24, 0x00	; 0
+ 33c:	90 40       	sbci	r25, 0x00	; 0
+ 33e:	e1 f7       	brne	.-8      	; 0x338 <name_display+0x11c>
+ 340:	00 c0       	rjmp	.+0      	; 0x342 <name_display+0x126>
+ 342:	00 00       	nop
+		_delay_ms(5000);
+		MAX7219_clear();
+ 344:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+ 348:	08 95       	ret
+
+0000034a <blocks1>:
+	
+}
+	
+void blocks1()    //I piece                             
+	
+	{   c1=3; r1=1; //pixel 1 initial position
+ 34a:	cf 93       	push	r28
+ 34c:	df 93       	push	r29
+ 34e:	83 e0       	ldi	r24, 0x03	; 3
+ 350:	90 e0       	ldi	r25, 0x00	; 0
+ 352:	90 93 15 01 	sts	0x0115, r25	; 0x800115 <c1+0x1>
+ 356:	80 93 14 01 	sts	0x0114, r24	; 0x800114 <c1>
+ 35a:	81 e0       	ldi	r24, 0x01	; 1
+ 35c:	90 e0       	ldi	r25, 0x00	; 0
+ 35e:	90 93 1b 01 	sts	0x011B, r25	; 0x80011b <r1+0x1>
+ 362:	80 93 1a 01 	sts	0x011A, r24	; 0x80011a <r1>
+		c2=4; r2=1; //pixel 2
+ 366:	24 e0       	ldi	r18, 0x04	; 4
+ 368:	30 e0       	ldi	r19, 0x00	; 0
+ 36a:	30 93 0f 01 	sts	0x010F, r19	; 0x80010f <c2+0x1>
+ 36e:	20 93 0e 01 	sts	0x010E, r18	; 0x80010e <c2>
+ 372:	90 93 17 01 	sts	0x0117, r25	; 0x800117 <r2+0x1>
+ 376:	80 93 16 01 	sts	0x0116, r24	; 0x800116 <r2>
+		c3=5; r3=1; //pixel 3
+ 37a:	25 e0       	ldi	r18, 0x05	; 5
+ 37c:	30 e0       	ldi	r19, 0x00	; 0
+ 37e:	30 93 19 01 	sts	0x0119, r19	; 0x800119 <c3+0x1>
+ 382:	20 93 18 01 	sts	0x0118, r18	; 0x800118 <c3>
+ 386:	90 93 0b 01 	sts	0x010B, r25	; 0x80010b <r3+0x1>
+ 38a:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <r3>
+		c4=6; r4=1; //pixel 4
+ 38e:	26 e0       	ldi	r18, 0x06	; 6
+ 390:	30 e0       	ldi	r19, 0x00	; 0
+ 392:	30 93 0d 01 	sts	0x010D, r19	; 0x80010d <c4+0x1>
+ 396:	20 93 0c 01 	sts	0x010C, r18	; 0x80010c <c4>
+ 39a:	90 93 12 01 	sts	0x0112, r25	; 0x800112 <r4+0x1>
+ 39e:	80 93 11 01 	sts	0x0111, r24	; 0x800111 <r4>
+		
+		for(int i=0;i<8;i++)	
+ 3a2:	c0 e0       	ldi	r28, 0x00	; 0
+ 3a4:	d0 e0       	ldi	r29, 0x00	; 0
+ 3a6:	4c c0       	rjmp	.+152    	; 0x440 <__EEPROM_REGION_LENGTH__+0x40>
+		{
+			MAX7219_set_pixel(r1,c1,true);
+ 3a8:	41 e0       	ldi	r20, 0x01	; 1
+ 3aa:	60 91 14 01 	lds	r22, 0x0114	; 0x800114 <c1>
+ 3ae:	80 91 1a 01 	lds	r24, 0x011A	; 0x80011a <r1>
+ 3b2:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+			MAX7219_set_pixel(r2,c2,true);
+ 3b6:	41 e0       	ldi	r20, 0x01	; 1
+ 3b8:	60 91 0e 01 	lds	r22, 0x010E	; 0x80010e <c2>
+ 3bc:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <r2>
+ 3c0:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+			MAX7219_set_pixel(r3,c3,true);
+ 3c4:	41 e0       	ldi	r20, 0x01	; 1
+ 3c6:	60 91 18 01 	lds	r22, 0x0118	; 0x800118 <c3>
+ 3ca:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <r3>
+ 3ce:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+			MAX7219_set_pixel(r4,c4,true);
+ 3d2:	41 e0       	ldi	r20, 0x01	; 1
+ 3d4:	60 91 0c 01 	lds	r22, 0x010C	; 0x80010c <c4>
+ 3d8:	80 91 11 01 	lds	r24, 0x0111	; 0x800111 <r4>
+ 3dc:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+ 3e0:	2f e7       	ldi	r18, 0x7F	; 127
+ 3e2:	8a e1       	ldi	r24, 0x1A	; 26
+ 3e4:	96 e0       	ldi	r25, 0x06	; 6
+ 3e6:	21 50       	subi	r18, 0x01	; 1
+ 3e8:	80 40       	sbci	r24, 0x00	; 0
+ 3ea:	90 40       	sbci	r25, 0x00	; 0
+ 3ec:	e1 f7       	brne	.-8      	; 0x3e6 <blocks1+0x9c>
+ 3ee:	00 c0       	rjmp	.+0      	; 0x3f0 <blocks1+0xa6>
+ 3f0:	00 00       	nop
+			_delay_ms(2000);
+			MAX7219_clear();
+ 3f2:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+			r1++; r2++; r3++; r4++;
+ 3f6:	80 91 1a 01 	lds	r24, 0x011A	; 0x80011a <r1>
+ 3fa:	90 91 1b 01 	lds	r25, 0x011B	; 0x80011b <r1+0x1>
+ 3fe:	01 96       	adiw	r24, 0x01	; 1
+ 400:	90 93 1b 01 	sts	0x011B, r25	; 0x80011b <r1+0x1>
+ 404:	80 93 1a 01 	sts	0x011A, r24	; 0x80011a <r1>
+ 408:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <r2>
+ 40c:	90 91 17 01 	lds	r25, 0x0117	; 0x800117 <r2+0x1>
+ 410:	01 96       	adiw	r24, 0x01	; 1
+ 412:	90 93 17 01 	sts	0x0117, r25	; 0x800117 <r2+0x1>
+ 416:	80 93 16 01 	sts	0x0116, r24	; 0x800116 <r2>
+ 41a:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <r3>
+ 41e:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <r3+0x1>
+ 422:	01 96       	adiw	r24, 0x01	; 1
+ 424:	90 93 0b 01 	sts	0x010B, r25	; 0x80010b <r3+0x1>
+ 428:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <r3>
+ 42c:	80 91 11 01 	lds	r24, 0x0111	; 0x800111 <r4>
+ 430:	90 91 12 01 	lds	r25, 0x0112	; 0x800112 <r4+0x1>
+ 434:	01 96       	adiw	r24, 0x01	; 1
+ 436:	90 93 12 01 	sts	0x0112, r25	; 0x800112 <r4+0x1>
+ 43a:	80 93 11 01 	sts	0x0111, r24	; 0x800111 <r4>
+	{   c1=3; r1=1; //pixel 1 initial position
+		c2=4; r2=1; //pixel 2
+		c3=5; r3=1; //pixel 3
+		c4=6; r4=1; //pixel 4
+		
+		for(int i=0;i<8;i++)	
+ 43e:	21 96       	adiw	r28, 0x01	; 1
+ 440:	c8 30       	cpi	r28, 0x08	; 8
+ 442:	d1 05       	cpc	r29, r1
+ 444:	0c f4       	brge	.+2      	; 0x448 <__EEPROM_REGION_LENGTH__+0x48>
+ 446:	b0 cf       	rjmp	.-160    	; 0x3a8 <blocks1+0x5e>
+			_delay_ms(2000);
+			MAX7219_clear();
+			r1++; r2++; r3++; r4++;
+		}
+			
+	}
+ 448:	df 91       	pop	r29
+ 44a:	cf 91       	pop	r28
+ 44c:	08 95       	ret
+
+0000044e <blocks2>:
+	
+	void blocks2()   	//J shape
+	
+	{   c1=6; r1=1; //pixel 1 initial position
+ 44e:	cf 93       	push	r28
+ 450:	df 93       	push	r29
+ 452:	86 e0       	ldi	r24, 0x06	; 6
+ 454:	90 e0       	ldi	r25, 0x00	; 0
+ 456:	90 93 15 01 	sts	0x0115, r25	; 0x800115 <c1+0x1>
+ 45a:	80 93 14 01 	sts	0x0114, r24	; 0x800114 <c1>
+ 45e:	81 e0       	ldi	r24, 0x01	; 1
+ 460:	90 e0       	ldi	r25, 0x00	; 0
+ 462:	90 93 1b 01 	sts	0x011B, r25	; 0x80011b <r1+0x1>
+ 466:	80 93 1a 01 	sts	0x011A, r24	; 0x80011a <r1>
+		c2=5; r2=1; //pixel 2
+ 46a:	25 e0       	ldi	r18, 0x05	; 5
+ 46c:	30 e0       	ldi	r19, 0x00	; 0
+ 46e:	30 93 0f 01 	sts	0x010F, r19	; 0x80010f <c2+0x1>
+ 472:	20 93 0e 01 	sts	0x010E, r18	; 0x80010e <c2>
+ 476:	90 93 17 01 	sts	0x0117, r25	; 0x800117 <r2+0x1>
+ 47a:	80 93 16 01 	sts	0x0116, r24	; 0x800116 <r2>
+		c3=4; r3=1; //pixel 3
+ 47e:	24 e0       	ldi	r18, 0x04	; 4
+ 480:	30 e0       	ldi	r19, 0x00	; 0
+ 482:	30 93 19 01 	sts	0x0119, r19	; 0x800119 <c3+0x1>
+ 486:	20 93 18 01 	sts	0x0118, r18	; 0x800118 <c3>
+ 48a:	90 93 0b 01 	sts	0x010B, r25	; 0x80010b <r3+0x1>
+ 48e:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <r3>
+		c4=4; r4=0; //pixel 4
+ 492:	30 93 0d 01 	sts	0x010D, r19	; 0x80010d <c4+0x1>
+ 496:	20 93 0c 01 	sts	0x010C, r18	; 0x80010c <c4>
+ 49a:	10 92 12 01 	sts	0x0112, r1	; 0x800112 <r4+0x1>
+ 49e:	10 92 11 01 	sts	0x0111, r1	; 0x800111 <r4>
+		
+		
+		for (int i=0;i<8;i++)
+ 4a2:	c0 e0       	ldi	r28, 0x00	; 0
+ 4a4:	d0 e0       	ldi	r29, 0x00	; 0
+ 4a6:	4c c0       	rjmp	.+152    	; 0x540 <blocks2+0xf2>
+		{
+			MAX7219_set_pixel(r1,c1,true);
+ 4a8:	41 e0       	ldi	r20, 0x01	; 1
+ 4aa:	60 91 14 01 	lds	r22, 0x0114	; 0x800114 <c1>
+ 4ae:	80 91 1a 01 	lds	r24, 0x011A	; 0x80011a <r1>
+ 4b2:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+			MAX7219_set_pixel(r2,c2,true);
+ 4b6:	41 e0       	ldi	r20, 0x01	; 1
+ 4b8:	60 91 0e 01 	lds	r22, 0x010E	; 0x80010e <c2>
+ 4bc:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <r2>
+ 4c0:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+			MAX7219_set_pixel(r3,c3,true);
+ 4c4:	41 e0       	ldi	r20, 0x01	; 1
+ 4c6:	60 91 18 01 	lds	r22, 0x0118	; 0x800118 <c3>
+ 4ca:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <r3>
+ 4ce:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+			MAX7219_set_pixel(r4,c4,true);
+ 4d2:	41 e0       	ldi	r20, 0x01	; 1
+ 4d4:	60 91 0c 01 	lds	r22, 0x010C	; 0x80010c <c4>
+ 4d8:	80 91 11 01 	lds	r24, 0x0111	; 0x800111 <r4>
+ 4dc:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+ 4e0:	2f e7       	ldi	r18, 0x7F	; 127
+ 4e2:	8a e1       	ldi	r24, 0x1A	; 26
+ 4e4:	96 e0       	ldi	r25, 0x06	; 6
+ 4e6:	21 50       	subi	r18, 0x01	; 1
+ 4e8:	80 40       	sbci	r24, 0x00	; 0
+ 4ea:	90 40       	sbci	r25, 0x00	; 0
+ 4ec:	e1 f7       	brne	.-8      	; 0x4e6 <blocks2+0x98>
+ 4ee:	00 c0       	rjmp	.+0      	; 0x4f0 <blocks2+0xa2>
+ 4f0:	00 00       	nop
+			_delay_ms(2000);
+			MAX7219_clear();
+ 4f2:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+			r1++; r2++; r3++; r4++;
+ 4f6:	80 91 1a 01 	lds	r24, 0x011A	; 0x80011a <r1>
+ 4fa:	90 91 1b 01 	lds	r25, 0x011B	; 0x80011b <r1+0x1>
+ 4fe:	01 96       	adiw	r24, 0x01	; 1
+ 500:	90 93 1b 01 	sts	0x011B, r25	; 0x80011b <r1+0x1>
+ 504:	80 93 1a 01 	sts	0x011A, r24	; 0x80011a <r1>
+ 508:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <r2>
+ 50c:	90 91 17 01 	lds	r25, 0x0117	; 0x800117 <r2+0x1>
+ 510:	01 96       	adiw	r24, 0x01	; 1
+ 512:	90 93 17 01 	sts	0x0117, r25	; 0x800117 <r2+0x1>
+ 516:	80 93 16 01 	sts	0x0116, r24	; 0x800116 <r2>
+ 51a:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <r3>
+ 51e:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <r3+0x1>
+ 522:	01 96       	adiw	r24, 0x01	; 1
+ 524:	90 93 0b 01 	sts	0x010B, r25	; 0x80010b <r3+0x1>
+ 528:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <r3>
+ 52c:	80 91 11 01 	lds	r24, 0x0111	; 0x800111 <r4>
+ 530:	90 91 12 01 	lds	r25, 0x0112	; 0x800112 <r4+0x1>
+ 534:	01 96       	adiw	r24, 0x01	; 1
+ 536:	90 93 12 01 	sts	0x0112, r25	; 0x800112 <r4+0x1>
+ 53a:	80 93 11 01 	sts	0x0111, r24	; 0x800111 <r4>
+		c2=5; r2=1; //pixel 2
+		c3=4; r3=1; //pixel 3
+		c4=4; r4=0; //pixel 4
+		
+		
+		for (int i=0;i<8;i++)
+ 53e:	21 96       	adiw	r28, 0x01	; 1
+ 540:	c8 30       	cpi	r28, 0x08	; 8
+ 542:	d1 05       	cpc	r29, r1
+ 544:	0c f4       	brge	.+2      	; 0x548 <blocks2+0xfa>
+ 546:	b0 cf       	rjmp	.-160    	; 0x4a8 <blocks2+0x5a>
+			_delay_ms(2000);
+			MAX7219_clear();
+			r1++; r2++; r3++; r4++;
+			
+		}
+	}
+ 548:	df 91       	pop	r29
+ 54a:	cf 91       	pop	r28
+ 54c:	08 95       	ret
+
+0000054e <blocks3>:
+		
+		void blocks3()   //L shape
+		
+		{   c1=6; r1=0; //pixel 1 initial position
+ 54e:	cf 93       	push	r28
+ 550:	df 93       	push	r29
+ 552:	86 e0       	ldi	r24, 0x06	; 6
+ 554:	90 e0       	ldi	r25, 0x00	; 0
+ 556:	90 93 15 01 	sts	0x0115, r25	; 0x800115 <c1+0x1>
+ 55a:	80 93 14 01 	sts	0x0114, r24	; 0x800114 <c1>
+ 55e:	10 92 1b 01 	sts	0x011B, r1	; 0x80011b <r1+0x1>
+ 562:	10 92 1a 01 	sts	0x011A, r1	; 0x80011a <r1>
+			c2=6; r2=1; //pixel 2
+ 566:	90 93 0f 01 	sts	0x010F, r25	; 0x80010f <c2+0x1>
+ 56a:	80 93 0e 01 	sts	0x010E, r24	; 0x80010e <c2>
+ 56e:	81 e0       	ldi	r24, 0x01	; 1
+ 570:	90 e0       	ldi	r25, 0x00	; 0
+ 572:	90 93 17 01 	sts	0x0117, r25	; 0x800117 <r2+0x1>
+ 576:	80 93 16 01 	sts	0x0116, r24	; 0x800116 <r2>
+			c3=5; r3=1; //pixel 3
+ 57a:	25 e0       	ldi	r18, 0x05	; 5
+ 57c:	30 e0       	ldi	r19, 0x00	; 0
+ 57e:	30 93 19 01 	sts	0x0119, r19	; 0x800119 <c3+0x1>
+ 582:	20 93 18 01 	sts	0x0118, r18	; 0x800118 <c3>
+ 586:	90 93 0b 01 	sts	0x010B, r25	; 0x80010b <r3+0x1>
+ 58a:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <r3>
+			c4=4; r4=1; //pixel 4
+ 58e:	24 e0       	ldi	r18, 0x04	; 4
+ 590:	30 e0       	ldi	r19, 0x00	; 0
+ 592:	30 93 0d 01 	sts	0x010D, r19	; 0x80010d <c4+0x1>
+ 596:	20 93 0c 01 	sts	0x010C, r18	; 0x80010c <c4>
+ 59a:	90 93 12 01 	sts	0x0112, r25	; 0x800112 <r4+0x1>
+ 59e:	80 93 11 01 	sts	0x0111, r24	; 0x800111 <r4>
+			
+			
+			for (int i=0;i<8;i++)
+ 5a2:	c0 e0       	ldi	r28, 0x00	; 0
+ 5a4:	d0 e0       	ldi	r29, 0x00	; 0
+ 5a6:	4c c0       	rjmp	.+152    	; 0x640 <blocks3+0xf2>
+			{
+				MAX7219_set_pixel(r1,c1,true);
+ 5a8:	41 e0       	ldi	r20, 0x01	; 1
+ 5aa:	60 91 14 01 	lds	r22, 0x0114	; 0x800114 <c1>
+ 5ae:	80 91 1a 01 	lds	r24, 0x011A	; 0x80011a <r1>
+ 5b2:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+				MAX7219_set_pixel(r2,c2,true);
+ 5b6:	41 e0       	ldi	r20, 0x01	; 1
+ 5b8:	60 91 0e 01 	lds	r22, 0x010E	; 0x80010e <c2>
+ 5bc:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <r2>
+ 5c0:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+				MAX7219_set_pixel(r3,c3,true);
+ 5c4:	41 e0       	ldi	r20, 0x01	; 1
+ 5c6:	60 91 18 01 	lds	r22, 0x0118	; 0x800118 <c3>
+ 5ca:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <r3>
+ 5ce:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+				MAX7219_set_pixel(r4,c4,true);
+ 5d2:	41 e0       	ldi	r20, 0x01	; 1
+ 5d4:	60 91 0c 01 	lds	r22, 0x010C	; 0x80010c <c4>
+ 5d8:	80 91 11 01 	lds	r24, 0x0111	; 0x800111 <r4>
+ 5dc:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+ 5e0:	2f e7       	ldi	r18, 0x7F	; 127
+ 5e2:	8a e1       	ldi	r24, 0x1A	; 26
+ 5e4:	96 e0       	ldi	r25, 0x06	; 6
+ 5e6:	21 50       	subi	r18, 0x01	; 1
+ 5e8:	80 40       	sbci	r24, 0x00	; 0
+ 5ea:	90 40       	sbci	r25, 0x00	; 0
+ 5ec:	e1 f7       	brne	.-8      	; 0x5e6 <blocks3+0x98>
+ 5ee:	00 c0       	rjmp	.+0      	; 0x5f0 <blocks3+0xa2>
+ 5f0:	00 00       	nop
+				_delay_ms(2000);
+				MAX7219_clear();
+ 5f2:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+				r1++; r2++; r3++; r4++;
+ 5f6:	80 91 1a 01 	lds	r24, 0x011A	; 0x80011a <r1>
+ 5fa:	90 91 1b 01 	lds	r25, 0x011B	; 0x80011b <r1+0x1>
+ 5fe:	01 96       	adiw	r24, 0x01	; 1
+ 600:	90 93 1b 01 	sts	0x011B, r25	; 0x80011b <r1+0x1>
+ 604:	80 93 1a 01 	sts	0x011A, r24	; 0x80011a <r1>
+ 608:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <r2>
+ 60c:	90 91 17 01 	lds	r25, 0x0117	; 0x800117 <r2+0x1>
+ 610:	01 96       	adiw	r24, 0x01	; 1
+ 612:	90 93 17 01 	sts	0x0117, r25	; 0x800117 <r2+0x1>
+ 616:	80 93 16 01 	sts	0x0116, r24	; 0x800116 <r2>
+ 61a:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <r3>
+ 61e:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <r3+0x1>
+ 622:	01 96       	adiw	r24, 0x01	; 1
+ 624:	90 93 0b 01 	sts	0x010B, r25	; 0x80010b <r3+0x1>
+ 628:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <r3>
+ 62c:	80 91 11 01 	lds	r24, 0x0111	; 0x800111 <r4>
+ 630:	90 91 12 01 	lds	r25, 0x0112	; 0x800112 <r4+0x1>
+ 634:	01 96       	adiw	r24, 0x01	; 1
+ 636:	90 93 12 01 	sts	0x0112, r25	; 0x800112 <r4+0x1>
+ 63a:	80 93 11 01 	sts	0x0111, r24	; 0x800111 <r4>
+			c2=6; r2=1; //pixel 2
+			c3=5; r3=1; //pixel 3
+			c4=4; r4=1; //pixel 4
+			
+			
+			for (int i=0;i<8;i++)
+ 63e:	21 96       	adiw	r28, 0x01	; 1
+ 640:	c8 30       	cpi	r28, 0x08	; 8
+ 642:	d1 05       	cpc	r29, r1
+ 644:	0c f4       	brge	.+2      	; 0x648 <blocks3+0xfa>
+ 646:	b0 cf       	rjmp	.-160    	; 0x5a8 <blocks3+0x5a>
+				_delay_ms(2000);
+				MAX7219_clear();
+				r1++; r2++; r3++; r4++;
+				
+			}
+		}	
+ 648:	df 91       	pop	r29
+ 64a:	cf 91       	pop	r28
+ 64c:	08 95       	ret
+
+0000064e <blocks4>:
+		
+		void blocks4() //O piece
+		
+		{   c1=6; r1=0; //pixel 1 initial position
+ 64e:	cf 93       	push	r28
+ 650:	df 93       	push	r29
+ 652:	86 e0       	ldi	r24, 0x06	; 6
+ 654:	90 e0       	ldi	r25, 0x00	; 0
+ 656:	90 93 15 01 	sts	0x0115, r25	; 0x800115 <c1+0x1>
+ 65a:	80 93 14 01 	sts	0x0114, r24	; 0x800114 <c1>
+ 65e:	10 92 1b 01 	sts	0x011B, r1	; 0x80011b <r1+0x1>
+ 662:	10 92 1a 01 	sts	0x011A, r1	; 0x80011a <r1>
+			c2=5; r2=0; //pixel 2
+ 666:	25 e0       	ldi	r18, 0x05	; 5
+ 668:	30 e0       	ldi	r19, 0x00	; 0
+ 66a:	30 93 0f 01 	sts	0x010F, r19	; 0x80010f <c2+0x1>
+ 66e:	20 93 0e 01 	sts	0x010E, r18	; 0x80010e <c2>
+ 672:	10 92 17 01 	sts	0x0117, r1	; 0x800117 <r2+0x1>
+ 676:	10 92 16 01 	sts	0x0116, r1	; 0x800116 <r2>
+			c3=6; r3=1; //pixel 3
+ 67a:	90 93 19 01 	sts	0x0119, r25	; 0x800119 <c3+0x1>
+ 67e:	80 93 18 01 	sts	0x0118, r24	; 0x800118 <c3>
+ 682:	81 e0       	ldi	r24, 0x01	; 1
+ 684:	90 e0       	ldi	r25, 0x00	; 0
+ 686:	90 93 0b 01 	sts	0x010B, r25	; 0x80010b <r3+0x1>
+ 68a:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <r3>
+			c4=5; r4=1; //pixel 4
+ 68e:	30 93 0d 01 	sts	0x010D, r19	; 0x80010d <c4+0x1>
+ 692:	20 93 0c 01 	sts	0x010C, r18	; 0x80010c <c4>
+ 696:	90 93 12 01 	sts	0x0112, r25	; 0x800112 <r4+0x1>
+ 69a:	80 93 11 01 	sts	0x0111, r24	; 0x800111 <r4>
+			
+			
+			for (int i=0;i<8;i++)
+ 69e:	c0 e0       	ldi	r28, 0x00	; 0
+ 6a0:	d0 e0       	ldi	r29, 0x00	; 0
+ 6a2:	4c c0       	rjmp	.+152    	; 0x73c <blocks4+0xee>
+			{
+				MAX7219_set_pixel(r1,c1,true);
+ 6a4:	41 e0       	ldi	r20, 0x01	; 1
+ 6a6:	60 91 14 01 	lds	r22, 0x0114	; 0x800114 <c1>
+ 6aa:	80 91 1a 01 	lds	r24, 0x011A	; 0x80011a <r1>
+ 6ae:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+				MAX7219_set_pixel(r2,c2,true);
+ 6b2:	41 e0       	ldi	r20, 0x01	; 1
+ 6b4:	60 91 0e 01 	lds	r22, 0x010E	; 0x80010e <c2>
+ 6b8:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <r2>
+ 6bc:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+				MAX7219_set_pixel(r3,c3,true);
+ 6c0:	41 e0       	ldi	r20, 0x01	; 1
+ 6c2:	60 91 18 01 	lds	r22, 0x0118	; 0x800118 <c3>
+ 6c6:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <r3>
+ 6ca:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+				MAX7219_set_pixel(r4,c4,true);
+ 6ce:	41 e0       	ldi	r20, 0x01	; 1
+ 6d0:	60 91 0c 01 	lds	r22, 0x010C	; 0x80010c <c4>
+ 6d4:	80 91 11 01 	lds	r24, 0x0111	; 0x800111 <r4>
+ 6d8:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+ 6dc:	2f e7       	ldi	r18, 0x7F	; 127
+ 6de:	8a e1       	ldi	r24, 0x1A	; 26
+ 6e0:	96 e0       	ldi	r25, 0x06	; 6
+ 6e2:	21 50       	subi	r18, 0x01	; 1
+ 6e4:	80 40       	sbci	r24, 0x00	; 0
+ 6e6:	90 40       	sbci	r25, 0x00	; 0
+ 6e8:	e1 f7       	brne	.-8      	; 0x6e2 <blocks4+0x94>
+ 6ea:	00 c0       	rjmp	.+0      	; 0x6ec <blocks4+0x9e>
+ 6ec:	00 00       	nop
+				_delay_ms(2000);
+				MAX7219_clear();
+ 6ee:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+				r1++; r2++; r3++; r4++;
+ 6f2:	80 91 1a 01 	lds	r24, 0x011A	; 0x80011a <r1>
+ 6f6:	90 91 1b 01 	lds	r25, 0x011B	; 0x80011b <r1+0x1>
+ 6fa:	01 96       	adiw	r24, 0x01	; 1
+ 6fc:	90 93 1b 01 	sts	0x011B, r25	; 0x80011b <r1+0x1>
+ 700:	80 93 1a 01 	sts	0x011A, r24	; 0x80011a <r1>
+ 704:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <r2>
+ 708:	90 91 17 01 	lds	r25, 0x0117	; 0x800117 <r2+0x1>
+ 70c:	01 96       	adiw	r24, 0x01	; 1
+ 70e:	90 93 17 01 	sts	0x0117, r25	; 0x800117 <r2+0x1>
+ 712:	80 93 16 01 	sts	0x0116, r24	; 0x800116 <r2>
+ 716:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <r3>
+ 71a:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <r3+0x1>
+ 71e:	01 96       	adiw	r24, 0x01	; 1
+ 720:	90 93 0b 01 	sts	0x010B, r25	; 0x80010b <r3+0x1>
+ 724:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <r3>
+ 728:	80 91 11 01 	lds	r24, 0x0111	; 0x800111 <r4>
+ 72c:	90 91 12 01 	lds	r25, 0x0112	; 0x800112 <r4+0x1>
+ 730:	01 96       	adiw	r24, 0x01	; 1
+ 732:	90 93 12 01 	sts	0x0112, r25	; 0x800112 <r4+0x1>
+ 736:	80 93 11 01 	sts	0x0111, r24	; 0x800111 <r4>
+			c2=5; r2=0; //pixel 2
+			c3=6; r3=1; //pixel 3
+			c4=5; r4=1; //pixel 4
+			
+			
+			for (int i=0;i<8;i++)
+ 73a:	21 96       	adiw	r28, 0x01	; 1
+ 73c:	c8 30       	cpi	r28, 0x08	; 8
+ 73e:	d1 05       	cpc	r29, r1
+ 740:	0c f4       	brge	.+2      	; 0x744 <blocks4+0xf6>
+ 742:	b0 cf       	rjmp	.-160    	; 0x6a4 <blocks4+0x56>
+				_delay_ms(2000);
+				MAX7219_clear();
+				r1++; r2++; r3++; r4++;
+				
+			}
+		}
+ 744:	df 91       	pop	r29
+ 746:	cf 91       	pop	r28
+ 748:	08 95       	ret
+
+0000074a <blocks5>:
+		
+		void blocks5()  //S piece
+		
+		{   c1=6; r1=0; //pixel 1 initial position
+ 74a:	cf 93       	push	r28
+ 74c:	df 93       	push	r29
+ 74e:	86 e0       	ldi	r24, 0x06	; 6
+ 750:	90 e0       	ldi	r25, 0x00	; 0
+ 752:	90 93 15 01 	sts	0x0115, r25	; 0x800115 <c1+0x1>
+ 756:	80 93 14 01 	sts	0x0114, r24	; 0x800114 <c1>
+ 75a:	10 92 1b 01 	sts	0x011B, r1	; 0x80011b <r1+0x1>
+ 75e:	10 92 1a 01 	sts	0x011A, r1	; 0x80011a <r1>
+			c2=5; r2=0; //pixel 2
+ 762:	85 e0       	ldi	r24, 0x05	; 5
+ 764:	90 e0       	ldi	r25, 0x00	; 0
+ 766:	90 93 0f 01 	sts	0x010F, r25	; 0x80010f <c2+0x1>
+ 76a:	80 93 0e 01 	sts	0x010E, r24	; 0x80010e <c2>
+ 76e:	10 92 17 01 	sts	0x0117, r1	; 0x800117 <r2+0x1>
+ 772:	10 92 16 01 	sts	0x0116, r1	; 0x800116 <r2>
+			c3=5; r3=1; //pixel 3
+ 776:	90 93 19 01 	sts	0x0119, r25	; 0x800119 <c3+0x1>
+ 77a:	80 93 18 01 	sts	0x0118, r24	; 0x800118 <c3>
+ 77e:	81 e0       	ldi	r24, 0x01	; 1
+ 780:	90 e0       	ldi	r25, 0x00	; 0
+ 782:	90 93 0b 01 	sts	0x010B, r25	; 0x80010b <r3+0x1>
+ 786:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <r3>
+			c4=4; r4=1; //pixel 4
+ 78a:	24 e0       	ldi	r18, 0x04	; 4
+ 78c:	30 e0       	ldi	r19, 0x00	; 0
+ 78e:	30 93 0d 01 	sts	0x010D, r19	; 0x80010d <c4+0x1>
+ 792:	20 93 0c 01 	sts	0x010C, r18	; 0x80010c <c4>
+ 796:	90 93 12 01 	sts	0x0112, r25	; 0x800112 <r4+0x1>
+ 79a:	80 93 11 01 	sts	0x0111, r24	; 0x800111 <r4>
+			
+			
+			for (int i=0;i<8;i++)
+ 79e:	c0 e0       	ldi	r28, 0x00	; 0
+ 7a0:	d0 e0       	ldi	r29, 0x00	; 0
+ 7a2:	4c c0       	rjmp	.+152    	; 0x83c <__DATA_REGION_LENGTH__+0x3c>
+			{
+				MAX7219_set_pixel(r1,c1,true);
+ 7a4:	41 e0       	ldi	r20, 0x01	; 1
+ 7a6:	60 91 14 01 	lds	r22, 0x0114	; 0x800114 <c1>
+ 7aa:	80 91 1a 01 	lds	r24, 0x011A	; 0x80011a <r1>
+ 7ae:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+				MAX7219_set_pixel(r2,c2,true);
+ 7b2:	41 e0       	ldi	r20, 0x01	; 1
+ 7b4:	60 91 0e 01 	lds	r22, 0x010E	; 0x80010e <c2>
+ 7b8:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <r2>
+ 7bc:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+				MAX7219_set_pixel(r3,c3,true);
+ 7c0:	41 e0       	ldi	r20, 0x01	; 1
+ 7c2:	60 91 18 01 	lds	r22, 0x0118	; 0x800118 <c3>
+ 7c6:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <r3>
+ 7ca:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+				MAX7219_set_pixel(r4,c4,true);
+ 7ce:	41 e0       	ldi	r20, 0x01	; 1
+ 7d0:	60 91 0c 01 	lds	r22, 0x010C	; 0x80010c <c4>
+ 7d4:	80 91 11 01 	lds	r24, 0x0111	; 0x800111 <r4>
+ 7d8:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+ 7dc:	2f e7       	ldi	r18, 0x7F	; 127
+ 7de:	8a e1       	ldi	r24, 0x1A	; 26
+ 7e0:	96 e0       	ldi	r25, 0x06	; 6
+ 7e2:	21 50       	subi	r18, 0x01	; 1
+ 7e4:	80 40       	sbci	r24, 0x00	; 0
+ 7e6:	90 40       	sbci	r25, 0x00	; 0
+ 7e8:	e1 f7       	brne	.-8      	; 0x7e2 <blocks5+0x98>
+ 7ea:	00 c0       	rjmp	.+0      	; 0x7ec <blocks5+0xa2>
+ 7ec:	00 00       	nop
+				_delay_ms(2000);
+				MAX7219_clear();
+ 7ee:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+				r1++; r2++; r3++; r4++;
+ 7f2:	80 91 1a 01 	lds	r24, 0x011A	; 0x80011a <r1>
+ 7f6:	90 91 1b 01 	lds	r25, 0x011B	; 0x80011b <r1+0x1>
+ 7fa:	01 96       	adiw	r24, 0x01	; 1
+ 7fc:	90 93 1b 01 	sts	0x011B, r25	; 0x80011b <r1+0x1>
+ 800:	80 93 1a 01 	sts	0x011A, r24	; 0x80011a <r1>
+ 804:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <r2>
+ 808:	90 91 17 01 	lds	r25, 0x0117	; 0x800117 <r2+0x1>
+ 80c:	01 96       	adiw	r24, 0x01	; 1
+ 80e:	90 93 17 01 	sts	0x0117, r25	; 0x800117 <r2+0x1>
+ 812:	80 93 16 01 	sts	0x0116, r24	; 0x800116 <r2>
+ 816:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <r3>
+ 81a:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <r3+0x1>
+ 81e:	01 96       	adiw	r24, 0x01	; 1
+ 820:	90 93 0b 01 	sts	0x010B, r25	; 0x80010b <r3+0x1>
+ 824:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <r3>
+ 828:	80 91 11 01 	lds	r24, 0x0111	; 0x800111 <r4>
+ 82c:	90 91 12 01 	lds	r25, 0x0112	; 0x800112 <r4+0x1>
+ 830:	01 96       	adiw	r24, 0x01	; 1
+ 832:	90 93 12 01 	sts	0x0112, r25	; 0x800112 <r4+0x1>
+ 836:	80 93 11 01 	sts	0x0111, r24	; 0x800111 <r4>
+			c2=5; r2=0; //pixel 2
+			c3=5; r3=1; //pixel 3
+			c4=4; r4=1; //pixel 4
+			
+			
+			for (int i=0;i<8;i++)
+ 83a:	21 96       	adiw	r28, 0x01	; 1
+ 83c:	c8 30       	cpi	r28, 0x08	; 8
+ 83e:	d1 05       	cpc	r29, r1
+ 840:	0c f4       	brge	.+2      	; 0x844 <__DATA_REGION_LENGTH__+0x44>
+ 842:	b0 cf       	rjmp	.-160    	; 0x7a4 <blocks5+0x5a>
+				_delay_ms(2000);
+				MAX7219_clear();
+				r1++; r2++; r3++; r4++;
+				
+			}
+		}
+ 844:	df 91       	pop	r29
+ 846:	cf 91       	pop	r28
+ 848:	08 95       	ret
+
+0000084a <blocks6>:
+		
+void blocks6() //T piece
+		
+		{   c1=6; r1=1; //pixel 1 initial position
+ 84a:	cf 93       	push	r28
+ 84c:	df 93       	push	r29
+ 84e:	86 e0       	ldi	r24, 0x06	; 6
+ 850:	90 e0       	ldi	r25, 0x00	; 0
+ 852:	90 93 15 01 	sts	0x0115, r25	; 0x800115 <c1+0x1>
+ 856:	80 93 14 01 	sts	0x0114, r24	; 0x800114 <c1>
+ 85a:	81 e0       	ldi	r24, 0x01	; 1
+ 85c:	90 e0       	ldi	r25, 0x00	; 0
+ 85e:	90 93 1b 01 	sts	0x011B, r25	; 0x80011b <r1+0x1>
+ 862:	80 93 1a 01 	sts	0x011A, r24	; 0x80011a <r1>
+			c2=5; r2=1; //pixel 2
+ 866:	25 e0       	ldi	r18, 0x05	; 5
+ 868:	30 e0       	ldi	r19, 0x00	; 0
+ 86a:	30 93 0f 01 	sts	0x010F, r19	; 0x80010f <c2+0x1>
+ 86e:	20 93 0e 01 	sts	0x010E, r18	; 0x80010e <c2>
+ 872:	90 93 17 01 	sts	0x0117, r25	; 0x800117 <r2+0x1>
+ 876:	80 93 16 01 	sts	0x0116, r24	; 0x800116 <r2>
+			c3=5; r3=0; //pixel 3
+ 87a:	30 93 19 01 	sts	0x0119, r19	; 0x800119 <c3+0x1>
+ 87e:	20 93 18 01 	sts	0x0118, r18	; 0x800118 <c3>
+ 882:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <r3+0x1>
+ 886:	10 92 0a 01 	sts	0x010A, r1	; 0x80010a <r3>
+			c4=4; r4=1; //pixel 4
+ 88a:	24 e0       	ldi	r18, 0x04	; 4
+ 88c:	30 e0       	ldi	r19, 0x00	; 0
+ 88e:	30 93 0d 01 	sts	0x010D, r19	; 0x80010d <c4+0x1>
+ 892:	20 93 0c 01 	sts	0x010C, r18	; 0x80010c <c4>
+ 896:	90 93 12 01 	sts	0x0112, r25	; 0x800112 <r4+0x1>
+ 89a:	80 93 11 01 	sts	0x0111, r24	; 0x800111 <r4>
+			
+			
+			for (int i=0;i<8;i++)
+ 89e:	c0 e0       	ldi	r28, 0x00	; 0
+ 8a0:	d0 e0       	ldi	r29, 0x00	; 0
+ 8a2:	4c c0       	rjmp	.+152    	; 0x93c <__stack+0x3d>
+			{
+				MAX7219_set_pixel(r1,c1,true);
+ 8a4:	41 e0       	ldi	r20, 0x01	; 1
+ 8a6:	60 91 14 01 	lds	r22, 0x0114	; 0x800114 <c1>
+ 8aa:	80 91 1a 01 	lds	r24, 0x011A	; 0x80011a <r1>
+ 8ae:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+				MAX7219_set_pixel(r2,c2,true);
+ 8b2:	41 e0       	ldi	r20, 0x01	; 1
+ 8b4:	60 91 0e 01 	lds	r22, 0x010E	; 0x80010e <c2>
+ 8b8:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <r2>
+ 8bc:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+				MAX7219_set_pixel(r3,c3,true);
+ 8c0:	41 e0       	ldi	r20, 0x01	; 1
+ 8c2:	60 91 18 01 	lds	r22, 0x0118	; 0x800118 <c3>
+ 8c6:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <r3>
+ 8ca:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+				MAX7219_set_pixel(r4,c4,true);
+ 8ce:	41 e0       	ldi	r20, 0x01	; 1
+ 8d0:	60 91 0c 01 	lds	r22, 0x010C	; 0x80010c <c4>
+ 8d4:	80 91 11 01 	lds	r24, 0x0111	; 0x800111 <r4>
+ 8d8:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+ 8dc:	2f e7       	ldi	r18, 0x7F	; 127
+ 8de:	8a e1       	ldi	r24, 0x1A	; 26
+ 8e0:	96 e0       	ldi	r25, 0x06	; 6
+ 8e2:	21 50       	subi	r18, 0x01	; 1
+ 8e4:	80 40       	sbci	r24, 0x00	; 0
+ 8e6:	90 40       	sbci	r25, 0x00	; 0
+ 8e8:	e1 f7       	brne	.-8      	; 0x8e2 <blocks6+0x98>
+ 8ea:	00 c0       	rjmp	.+0      	; 0x8ec <blocks6+0xa2>
+ 8ec:	00 00       	nop
+				_delay_ms(2000);
+				MAX7219_clear();
+ 8ee:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+				r1++; r2++; r3++; r4++;
+ 8f2:	80 91 1a 01 	lds	r24, 0x011A	; 0x80011a <r1>
+ 8f6:	90 91 1b 01 	lds	r25, 0x011B	; 0x80011b <r1+0x1>
+ 8fa:	01 96       	adiw	r24, 0x01	; 1
+ 8fc:	90 93 1b 01 	sts	0x011B, r25	; 0x80011b <r1+0x1>
+ 900:	80 93 1a 01 	sts	0x011A, r24	; 0x80011a <r1>
+ 904:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <r2>
+ 908:	90 91 17 01 	lds	r25, 0x0117	; 0x800117 <r2+0x1>
+ 90c:	01 96       	adiw	r24, 0x01	; 1
+ 90e:	90 93 17 01 	sts	0x0117, r25	; 0x800117 <r2+0x1>
+ 912:	80 93 16 01 	sts	0x0116, r24	; 0x800116 <r2>
+ 916:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <r3>
+ 91a:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <r3+0x1>
+ 91e:	01 96       	adiw	r24, 0x01	; 1
+ 920:	90 93 0b 01 	sts	0x010B, r25	; 0x80010b <r3+0x1>
+ 924:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <r3>
+ 928:	80 91 11 01 	lds	r24, 0x0111	; 0x800111 <r4>
+ 92c:	90 91 12 01 	lds	r25, 0x0112	; 0x800112 <r4+0x1>
+ 930:	01 96       	adiw	r24, 0x01	; 1
+ 932:	90 93 12 01 	sts	0x0112, r25	; 0x800112 <r4+0x1>
+ 936:	80 93 11 01 	sts	0x0111, r24	; 0x800111 <r4>
+			c2=5; r2=1; //pixel 2
+			c3=5; r3=0; //pixel 3
+			c4=4; r4=1; //pixel 4
+			
+			
+			for (int i=0;i<8;i++)
+ 93a:	21 96       	adiw	r28, 0x01	; 1
+ 93c:	c8 30       	cpi	r28, 0x08	; 8
+ 93e:	d1 05       	cpc	r29, r1
+ 940:	0c f4       	brge	.+2      	; 0x944 <__stack+0x45>
+ 942:	b0 cf       	rjmp	.-160    	; 0x8a4 <blocks6+0x5a>
+				_delay_ms(2000);
+				MAX7219_clear();
+				r1++; r2++; r3++; r4++;
+				
+			}
+		}
+ 944:	df 91       	pop	r29
+ 946:	cf 91       	pop	r28
+ 948:	08 95       	ret
+
+0000094a <blocks7>:
+		
+void blocks7() //Z piece
+
+{   c1=4; r1=0; //pixel 1 initial position
+ 94a:	cf 93       	push	r28
+ 94c:	df 93       	push	r29
+ 94e:	84 e0       	ldi	r24, 0x04	; 4
+ 950:	90 e0       	ldi	r25, 0x00	; 0
+ 952:	90 93 15 01 	sts	0x0115, r25	; 0x800115 <c1+0x1>
+ 956:	80 93 14 01 	sts	0x0114, r24	; 0x800114 <c1>
+ 95a:	10 92 1b 01 	sts	0x011B, r1	; 0x80011b <r1+0x1>
+ 95e:	10 92 1a 01 	sts	0x011A, r1	; 0x80011a <r1>
+	c2=5; r2=0; //pixel 2
+ 962:	25 e0       	ldi	r18, 0x05	; 5
+ 964:	30 e0       	ldi	r19, 0x00	; 0
+ 966:	30 93 0f 01 	sts	0x010F, r19	; 0x80010f <c2+0x1>
+ 96a:	20 93 0e 01 	sts	0x010E, r18	; 0x80010e <c2>
+ 96e:	10 92 17 01 	sts	0x0117, r1	; 0x800117 <r2+0x1>
+ 972:	10 92 16 01 	sts	0x0116, r1	; 0x800116 <r2>
+	c3=6; r3=1; //pixel 3
+ 976:	86 e0       	ldi	r24, 0x06	; 6
+ 978:	90 e0       	ldi	r25, 0x00	; 0
+ 97a:	90 93 19 01 	sts	0x0119, r25	; 0x800119 <c3+0x1>
+ 97e:	80 93 18 01 	sts	0x0118, r24	; 0x800118 <c3>
+ 982:	81 e0       	ldi	r24, 0x01	; 1
+ 984:	90 e0       	ldi	r25, 0x00	; 0
+ 986:	90 93 0b 01 	sts	0x010B, r25	; 0x80010b <r3+0x1>
+ 98a:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <r3>
+	c4=5; r4=1; //pixel 4
+ 98e:	30 93 0d 01 	sts	0x010D, r19	; 0x80010d <c4+0x1>
+ 992:	20 93 0c 01 	sts	0x010C, r18	; 0x80010c <c4>
+ 996:	90 93 12 01 	sts	0x0112, r25	; 0x800112 <r4+0x1>
+ 99a:	80 93 11 01 	sts	0x0111, r24	; 0x800111 <r4>
+	
+	
+	for (int i=0;i<8;i++)
+ 99e:	c0 e0       	ldi	r28, 0x00	; 0
+ 9a0:	d0 e0       	ldi	r29, 0x00	; 0
+ 9a2:	4c c0       	rjmp	.+152    	; 0xa3c <blocks7+0xf2>
+	{
+		MAX7219_set_pixel(r1,c1,true);
+ 9a4:	41 e0       	ldi	r20, 0x01	; 1
+ 9a6:	60 91 14 01 	lds	r22, 0x0114	; 0x800114 <c1>
+ 9aa:	80 91 1a 01 	lds	r24, 0x011A	; 0x80011a <r1>
+ 9ae:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+		MAX7219_set_pixel(r2,c2,true);
+ 9b2:	41 e0       	ldi	r20, 0x01	; 1
+ 9b4:	60 91 0e 01 	lds	r22, 0x010E	; 0x80010e <c2>
+ 9b8:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <r2>
+ 9bc:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+		MAX7219_set_pixel(r3,c3,true);
+ 9c0:	41 e0       	ldi	r20, 0x01	; 1
+ 9c2:	60 91 18 01 	lds	r22, 0x0118	; 0x800118 <c3>
+ 9c6:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <r3>
+ 9ca:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+		MAX7219_set_pixel(r4,c4,true);
+ 9ce:	41 e0       	ldi	r20, 0x01	; 1
+ 9d0:	60 91 0c 01 	lds	r22, 0x010C	; 0x80010c <c4>
+ 9d4:	80 91 11 01 	lds	r24, 0x0111	; 0x800111 <r4>
+ 9d8:	0e 94 8b 00 	call	0x116	; 0x116 <MAX7219_set_pixel>
+ 9dc:	2f e7       	ldi	r18, 0x7F	; 127
+ 9de:	8a e1       	ldi	r24, 0x1A	; 26
+ 9e0:	96 e0       	ldi	r25, 0x06	; 6
+ 9e2:	21 50       	subi	r18, 0x01	; 1
+ 9e4:	80 40       	sbci	r24, 0x00	; 0
+ 9e6:	90 40       	sbci	r25, 0x00	; 0
+ 9e8:	e1 f7       	brne	.-8      	; 0x9e2 <blocks7+0x98>
+ 9ea:	00 c0       	rjmp	.+0      	; 0x9ec <blocks7+0xa2>
+ 9ec:	00 00       	nop
+		_delay_ms(2000);
+		MAX7219_clear();
+ 9ee:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+		r1++; r2++; r3++; r4++;
+ 9f2:	80 91 1a 01 	lds	r24, 0x011A	; 0x80011a <r1>
+ 9f6:	90 91 1b 01 	lds	r25, 0x011B	; 0x80011b <r1+0x1>
+ 9fa:	01 96       	adiw	r24, 0x01	; 1
+ 9fc:	90 93 1b 01 	sts	0x011B, r25	; 0x80011b <r1+0x1>
+ a00:	80 93 1a 01 	sts	0x011A, r24	; 0x80011a <r1>
+ a04:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <r2>
+ a08:	90 91 17 01 	lds	r25, 0x0117	; 0x800117 <r2+0x1>
+ a0c:	01 96       	adiw	r24, 0x01	; 1
+ a0e:	90 93 17 01 	sts	0x0117, r25	; 0x800117 <r2+0x1>
+ a12:	80 93 16 01 	sts	0x0116, r24	; 0x800116 <r2>
+ a16:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <r3>
+ a1a:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <r3+0x1>
+ a1e:	01 96       	adiw	r24, 0x01	; 1
+ a20:	90 93 0b 01 	sts	0x010B, r25	; 0x80010b <r3+0x1>
+ a24:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <r3>
+ a28:	80 91 11 01 	lds	r24, 0x0111	; 0x800111 <r4>
+ a2c:	90 91 12 01 	lds	r25, 0x0112	; 0x800112 <r4+0x1>
+ a30:	01 96       	adiw	r24, 0x01	; 1
+ a32:	90 93 12 01 	sts	0x0112, r25	; 0x800112 <r4+0x1>
+ a36:	80 93 11 01 	sts	0x0111, r24	; 0x800111 <r4>
+	c2=5; r2=0; //pixel 2
+	c3=6; r3=1; //pixel 3
+	c4=5; r4=1; //pixel 4
+	
+	
+	for (int i=0;i<8;i++)
+ a3a:	21 96       	adiw	r28, 0x01	; 1
+ a3c:	c8 30       	cpi	r28, 0x08	; 8
+ a3e:	d1 05       	cpc	r29, r1
+ a40:	0c f4       	brge	.+2      	; 0xa44 <blocks7+0xfa>
+ a42:	b0 cf       	rjmp	.-160    	; 0x9a4 <blocks7+0x5a>
+		_delay_ms(2000);
+		MAX7219_clear();
+		r1++; r2++; r3++; r4++;
+		
+	}
+}
+ a44:	df 91       	pop	r29
+ a46:	cf 91       	pop	r28
+ a48:	08 95       	ret
+
+00000a4a <blockgen>:
+		
+void blockgen(){ //display the block according to the generated number 
+	USART_Transmit('T'); //sending the serial bus signal to request a random number
+ a4a:	84 e5       	ldi	r24, 0x54	; 84
+ a4c:	0e 94 07 01 	call	0x20e	; 0x20e <USART_Transmit>
+ a50:	2f e3       	ldi	r18, 0x3F	; 63
+ a52:	82 e4       	ldi	r24, 0x42	; 66
+ a54:	9f e0       	ldi	r25, 0x0F	; 15
+ a56:	21 50       	subi	r18, 0x01	; 1
+ a58:	80 40       	sbci	r24, 0x00	; 0
+ a5a:	90 40       	sbci	r25, 0x00	; 0
+ a5c:	e1 f7       	brne	.-8      	; 0xa56 <blockgen+0xc>
+ a5e:	00 c0       	rjmp	.+0      	; 0xa60 <blockgen+0x16>
+ a60:	00 00       	nop
+	_delay_ms(5000);
+	
+	text = USART_Receive();
+ a62:	0e 94 00 01 	call	0x200	; 0x200 <USART_Receive>
+ a66:	80 93 13 01 	sts	0x0113, r24	; 0x800113 <text>
+	
+	
+	if (text == '1'){
+ a6a:	81 33       	cpi	r24, 0x31	; 49
+ a6c:	29 f4       	brne	.+10     	; 0xa78 <blockgen+0x2e>
+		PORTC = 0x01; // display the numbers that RNG MCU generated
+ a6e:	81 e0       	ldi	r24, 0x01	; 1
+ a70:	88 b9       	out	0x08, r24	; 8
+		blocks1();
+ a72:	0e 94 a5 01 	call	0x34a	; 0x34a <blocks1>
+ a76:	08 95       	ret
+		
+	}
+	else if (text =='2'){
+ a78:	82 33       	cpi	r24, 0x32	; 50
+ a7a:	29 f4       	brne	.+10     	; 0xa86 <blockgen+0x3c>
+		PORTC = 0x02;
+ a7c:	82 e0       	ldi	r24, 0x02	; 2
+ a7e:	88 b9       	out	0x08, r24	; 8
+		blocks2();
+ a80:	0e 94 27 02 	call	0x44e	; 0x44e <blocks2>
+ a84:	08 95       	ret
+	}
+	
+	else if (text =='3'){
+ a86:	83 33       	cpi	r24, 0x33	; 51
+ a88:	29 f4       	brne	.+10     	; 0xa94 <blockgen+0x4a>
+		PORTC = 0x03;
+ a8a:	83 e0       	ldi	r24, 0x03	; 3
+ a8c:	88 b9       	out	0x08, r24	; 8
+		blocks3();
+ a8e:	0e 94 a7 02 	call	0x54e	; 0x54e <blocks3>
+ a92:	08 95       	ret
+		
+	}
+	else if (text =='4'){
+ a94:	84 33       	cpi	r24, 0x34	; 52
+ a96:	29 f4       	brne	.+10     	; 0xaa2 <blockgen+0x58>
+		PORTC = 0x04;
+ a98:	84 e0       	ldi	r24, 0x04	; 4
+ a9a:	88 b9       	out	0x08, r24	; 8
+		blocks4();
+ a9c:	0e 94 27 03 	call	0x64e	; 0x64e <blocks4>
+ aa0:	08 95       	ret
+		
+	}
+	else if (text=='5'){
+ aa2:	85 33       	cpi	r24, 0x35	; 53
+ aa4:	29 f4       	brne	.+10     	; 0xab0 <blockgen+0x66>
+		PORTC = 0x05;
+ aa6:	85 e0       	ldi	r24, 0x05	; 5
+ aa8:	88 b9       	out	0x08, r24	; 8
+		blocks5();
+ aaa:	0e 94 a5 03 	call	0x74a	; 0x74a <blocks5>
+ aae:	08 95       	ret
+		
+	}
+	else if (text=='6'){
+ ab0:	86 33       	cpi	r24, 0x36	; 54
+ ab2:	29 f4       	brne	.+10     	; 0xabe <blockgen+0x74>
+		PORTC = 0x06;
+ ab4:	86 e0       	ldi	r24, 0x06	; 6
+ ab6:	88 b9       	out	0x08, r24	; 8
+		blocks6();
+ ab8:	0e 94 25 04 	call	0x84a	; 0x84a <blocks6>
+ abc:	08 95       	ret
+		
+	}
+	else if (text=='7'){
+ abe:	87 33       	cpi	r24, 0x37	; 55
+ ac0:	21 f4       	brne	.+8      	; 0xaca <blockgen+0x80>
+		PORTC = 0x07;
+ ac2:	87 e0       	ldi	r24, 0x07	; 7
+ ac4:	88 b9       	out	0x08, r24	; 8
+		blocks7();
+ ac6:	0e 94 a5 04 	call	0x94a	; 0x94a <blocks7>
+ aca:	08 95       	ret
+
+00000acc <GameOver>:
+}	
+
+
+void GameOver ()
+{
+		  	MAX7219_set_row(2,0b00111100); //G   7,6,5,4,3,2,1,0
+ acc:	6c e3       	ldi	r22, 0x3C	; 60
+ ace:	82 e0       	ldi	r24, 0x02	; 2
+ ad0:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		  	MAX7219_set_row(3,0b00000010);
+ ad4:	62 e0       	ldi	r22, 0x02	; 2
+ ad6:	83 e0       	ldi	r24, 0x03	; 3
+ ad8:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+			MAX7219_set_row(4,0b00110010);
+ adc:	62 e3       	ldi	r22, 0x32	; 50
+ ade:	84 e0       	ldi	r24, 0x04	; 4
+ ae0:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+			MAX7219_set_row(5,0b00100010);
+ ae4:	62 e2       	ldi	r22, 0x22	; 34
+ ae6:	85 e0       	ldi	r24, 0x05	; 5
+ ae8:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+			MAX7219_set_row(6,0b00111100);
+ aec:	6c e3       	ldi	r22, 0x3C	; 60
+ aee:	86 e0       	ldi	r24, 0x06	; 6
+ af0:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+ af4:	2f e3       	ldi	r18, 0x3F	; 63
+ af6:	82 e4       	ldi	r24, 0x42	; 66
+ af8:	9f e0       	ldi	r25, 0x0F	; 15
+ afa:	21 50       	subi	r18, 0x01	; 1
+ afc:	80 40       	sbci	r24, 0x00	; 0
+ afe:	90 40       	sbci	r25, 0x00	; 0
+ b00:	e1 f7       	brne	.-8      	; 0xafa <GameOver+0x2e>
+ b02:	00 c0       	rjmp	.+0      	; 0xb04 <GameOver+0x38>
+ b04:	00 00       	nop
+		  	_delay_ms(5000);
+		  	MAX7219_clear();
+ b06:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+	
+	
+			MAX7219_set_row(2,0b00001000); //A   7,6,5,4,3,2,1,0
+ b0a:	68 e0       	ldi	r22, 0x08	; 8
+ b0c:	82 e0       	ldi	r24, 0x02	; 2
+ b0e:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+			MAX7219_set_row(3,0b00010100);
+ b12:	64 e1       	ldi	r22, 0x14	; 20
+ b14:	83 e0       	ldi	r24, 0x03	; 3
+ b16:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+			MAX7219_set_row(4,0b00100010);
+ b1a:	62 e2       	ldi	r22, 0x22	; 34
+ b1c:	84 e0       	ldi	r24, 0x04	; 4
+ b1e:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+			MAX7219_set_row(5,0b00111110);
+ b22:	6e e3       	ldi	r22, 0x3E	; 62
+ b24:	85 e0       	ldi	r24, 0x05	; 5
+ b26:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+			MAX7219_set_row(6,0b00100010);
+ b2a:	62 e2       	ldi	r22, 0x22	; 34
+ b2c:	86 e0       	ldi	r24, 0x06	; 6
+ b2e:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+ b32:	2f e3       	ldi	r18, 0x3F	; 63
+ b34:	82 e4       	ldi	r24, 0x42	; 66
+ b36:	9f e0       	ldi	r25, 0x0F	; 15
+ b38:	21 50       	subi	r18, 0x01	; 1
+ b3a:	80 40       	sbci	r24, 0x00	; 0
+ b3c:	90 40       	sbci	r25, 0x00	; 0
+ b3e:	e1 f7       	brne	.-8      	; 0xb38 <GameOver+0x6c>
+ b40:	00 c0       	rjmp	.+0      	; 0xb42 <GameOver+0x76>
+ b42:	00 00       	nop
+			_delay_ms(5000);
+			MAX7219_clear();
+ b44:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+			
+			MAX7219_set_row(2,0b00100010); //M   7,6,5,4,3,2,1,0
+ b48:	62 e2       	ldi	r22, 0x22	; 34
+ b4a:	82 e0       	ldi	r24, 0x02	; 2
+ b4c:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+			MAX7219_set_row(3,0b00110110);
+ b50:	66 e3       	ldi	r22, 0x36	; 54
+ b52:	83 e0       	ldi	r24, 0x03	; 3
+ b54:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+			MAX7219_set_row(4,0b00101010);
+ b58:	6a e2       	ldi	r22, 0x2A	; 42
+ b5a:	84 e0       	ldi	r24, 0x04	; 4
+ b5c:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+			MAX7219_set_row(5,0b00100010);
+ b60:	62 e2       	ldi	r22, 0x22	; 34
+ b62:	85 e0       	ldi	r24, 0x05	; 5
+ b64:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+			MAX7219_set_row(6,0b00100010);
+ b68:	62 e2       	ldi	r22, 0x22	; 34
+ b6a:	86 e0       	ldi	r24, 0x06	; 6
+ b6c:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+ b70:	2f e3       	ldi	r18, 0x3F	; 63
+ b72:	82 e4       	ldi	r24, 0x42	; 66
+ b74:	9f e0       	ldi	r25, 0x0F	; 15
+ b76:	21 50       	subi	r18, 0x01	; 1
+ b78:	80 40       	sbci	r24, 0x00	; 0
+ b7a:	90 40       	sbci	r25, 0x00	; 0
+ b7c:	e1 f7       	brne	.-8      	; 0xb76 <GameOver+0xaa>
+ b7e:	00 c0       	rjmp	.+0      	; 0xb80 <GameOver+0xb4>
+ b80:	00 00       	nop
+			_delay_ms(5000);
+			MAX7219_clear();	
+ b82:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+			
+		MAX7219_set_column(5,0b01000100); //E
+ b86:	64 e4       	ldi	r22, 0x44	; 68
+ b88:	85 e0       	ldi	r24, 0x05	; 5
+ b8a:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+		MAX7219_set_column(4,0b01000100);
+ b8e:	64 e4       	ldi	r22, 0x44	; 68
+ b90:	84 e0       	ldi	r24, 0x04	; 4
+ b92:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+		MAX7219_set_column(3,0b01010100);
+ b96:	64 e5       	ldi	r22, 0x54	; 84
+ b98:	83 e0       	ldi	r24, 0x03	; 3
+ b9a:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+		MAX7219_set_column(2,0b01010100);
+ b9e:	64 e5       	ldi	r22, 0x54	; 84
+ ba0:	82 e0       	ldi	r24, 0x02	; 2
+ ba2:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+		MAX7219_set_column(1,0b01111100);
+ ba6:	6c e7       	ldi	r22, 0x7C	; 124
+ ba8:	81 e0       	ldi	r24, 0x01	; 1
+ baa:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+ bae:	2f e7       	ldi	r18, 0x7F	; 127
+ bb0:	84 e8       	ldi	r24, 0x84	; 132
+ bb2:	9e e1       	ldi	r25, 0x1E	; 30
+ bb4:	21 50       	subi	r18, 0x01	; 1
+ bb6:	80 40       	sbci	r24, 0x00	; 0
+ bb8:	90 40       	sbci	r25, 0x00	; 0
+ bba:	e1 f7       	brne	.-8      	; 0xbb4 <GameOver+0xe8>
+ bbc:	00 c0       	rjmp	.+0      	; 0xbbe <GameOver+0xf2>
+ bbe:	00 00       	nop
+		_delay_ms(10000);
+		MAX7219_clear();
+ bc0:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+		
+	MAX7219_set_row(6,0b00011100); //O
+ bc4:	6c e1       	ldi	r22, 0x1C	; 28
+ bc6:	86 e0       	ldi	r24, 0x06	; 6
+ bc8:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+	MAX7219_set_row(5,0b00100010);
+ bcc:	62 e2       	ldi	r22, 0x22	; 34
+ bce:	85 e0       	ldi	r24, 0x05	; 5
+ bd0:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+	MAX7219_set_row(4,0b00100010);
+ bd4:	62 e2       	ldi	r22, 0x22	; 34
+ bd6:	84 e0       	ldi	r24, 0x04	; 4
+ bd8:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+	MAX7219_set_row(3,0b00100010);
+ bdc:	62 e2       	ldi	r22, 0x22	; 34
+ bde:	83 e0       	ldi	r24, 0x03	; 3
+ be0:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+	MAX7219_set_row(2,0b00011100);
+ be4:	6c e1       	ldi	r22, 0x1C	; 28
+ be6:	82 e0       	ldi	r24, 0x02	; 2
+ be8:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+ bec:	2f e3       	ldi	r18, 0x3F	; 63
+ bee:	82 e4       	ldi	r24, 0x42	; 66
+ bf0:	9f e0       	ldi	r25, 0x0F	; 15
+ bf2:	21 50       	subi	r18, 0x01	; 1
+ bf4:	80 40       	sbci	r24, 0x00	; 0
+ bf6:	90 40       	sbci	r25, 0x00	; 0
+ bf8:	e1 f7       	brne	.-8      	; 0xbf2 <GameOver+0x126>
+ bfa:	00 c0       	rjmp	.+0      	; 0xbfc <GameOver+0x130>
+ bfc:	00 00       	nop
+	_delay_ms(5000);
+	MAX7219_clear();
+ bfe:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+	
+		MAX7219_set_row(2,0b00100010); //V
+ c02:	62 e2       	ldi	r22, 0x22	; 34
+ c04:	82 e0       	ldi	r24, 0x02	; 2
+ c06:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		MAX7219_set_row(3,0b00100010);
+ c0a:	62 e2       	ldi	r22, 0x22	; 34
+ c0c:	83 e0       	ldi	r24, 0x03	; 3
+ c0e:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		MAX7219_set_row(4,0b00100010);
+ c12:	62 e2       	ldi	r22, 0x22	; 34
+ c14:	84 e0       	ldi	r24, 0x04	; 4
+ c16:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		MAX7219_set_row(5,0b00010100);
+ c1a:	64 e1       	ldi	r22, 0x14	; 20
+ c1c:	85 e0       	ldi	r24, 0x05	; 5
+ c1e:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		MAX7219_set_row(6,0b00001000);
+ c22:	68 e0       	ldi	r22, 0x08	; 8
+ c24:	86 e0       	ldi	r24, 0x06	; 6
+ c26:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+ c2a:	2f e3       	ldi	r18, 0x3F	; 63
+ c2c:	82 e4       	ldi	r24, 0x42	; 66
+ c2e:	9f e0       	ldi	r25, 0x0F	; 15
+ c30:	21 50       	subi	r18, 0x01	; 1
+ c32:	80 40       	sbci	r24, 0x00	; 0
+ c34:	90 40       	sbci	r25, 0x00	; 0
+ c36:	e1 f7       	brne	.-8      	; 0xc30 <GameOver+0x164>
+ c38:	00 c0       	rjmp	.+0      	; 0xc3a <GameOver+0x16e>
+ c3a:	00 00       	nop
+		_delay_ms(5000);
+		MAX7219_clear();
+ c3c:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+		
+		MAX7219_set_column(5,0b01000100); //E
+ c40:	64 e4       	ldi	r22, 0x44	; 68
+ c42:	85 e0       	ldi	r24, 0x05	; 5
+ c44:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+		MAX7219_set_column(4,0b01000100);
+ c48:	64 e4       	ldi	r22, 0x44	; 68
+ c4a:	84 e0       	ldi	r24, 0x04	; 4
+ c4c:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+		MAX7219_set_column(3,0b01010100);
+ c50:	64 e5       	ldi	r22, 0x54	; 84
+ c52:	83 e0       	ldi	r24, 0x03	; 3
+ c54:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+		MAX7219_set_column(2,0b01010100);
+ c58:	64 e5       	ldi	r22, 0x54	; 84
+ c5a:	82 e0       	ldi	r24, 0x02	; 2
+ c5c:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+		MAX7219_set_column(1,0b01111100);
+ c60:	6c e7       	ldi	r22, 0x7C	; 124
+ c62:	81 e0       	ldi	r24, 0x01	; 1
+ c64:	0e 94 bc 00 	call	0x178	; 0x178 <MAX7219_set_column>
+ c68:	2f e3       	ldi	r18, 0x3F	; 63
+ c6a:	82 e4       	ldi	r24, 0x42	; 66
+ c6c:	9f e0       	ldi	r25, 0x0F	; 15
+ c6e:	21 50       	subi	r18, 0x01	; 1
+ c70:	80 40       	sbci	r24, 0x00	; 0
+ c72:	90 40       	sbci	r25, 0x00	; 0
+ c74:	e1 f7       	brne	.-8      	; 0xc6e <GameOver+0x1a2>
+ c76:	00 c0       	rjmp	.+0      	; 0xc78 <GameOver+0x1ac>
+ c78:	00 00       	nop
+		_delay_ms(5000);
+		MAX7219_clear();
+ c7a:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+		
+		MAX7219_set_row(2,0b00011110); //R
+ c7e:	6e e1       	ldi	r22, 0x1E	; 30
+ c80:	82 e0       	ldi	r24, 0x02	; 2
+ c82:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		MAX7219_set_row(3,0b00100010);
+ c86:	62 e2       	ldi	r22, 0x22	; 34
+ c88:	83 e0       	ldi	r24, 0x03	; 3
+ c8a:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		MAX7219_set_row(4,0b00011110);
+ c8e:	6e e1       	ldi	r22, 0x1E	; 30
+ c90:	84 e0       	ldi	r24, 0x04	; 4
+ c92:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		MAX7219_set_row(5,0b00100010);
+ c96:	62 e2       	ldi	r22, 0x22	; 34
+ c98:	85 e0       	ldi	r24, 0x05	; 5
+ c9a:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+		MAX7219_set_row(6,0b00100010);
+ c9e:	62 e2       	ldi	r22, 0x22	; 34
+ ca0:	86 e0       	ldi	r24, 0x06	; 6
+ ca2:	0e 94 b1 00 	call	0x162	; 0x162 <MAX7219_set_row>
+ ca6:	2f e3       	ldi	r18, 0x3F	; 63
+ ca8:	82 e4       	ldi	r24, 0x42	; 66
+ caa:	9f e0       	ldi	r25, 0x0F	; 15
+ cac:	21 50       	subi	r18, 0x01	; 1
+ cae:	80 40       	sbci	r24, 0x00	; 0
+ cb0:	90 40       	sbci	r25, 0x00	; 0
+ cb2:	e1 f7       	brne	.-8      	; 0xcac <GameOver+0x1e0>
+ cb4:	00 c0       	rjmp	.+0      	; 0xcb6 <GameOver+0x1ea>
+ cb6:	00 00       	nop
+		_delay_ms(5000);
+		MAX7219_clear();				
+ cb8:	0e 94 db 00 	call	0x1b6	; 0x1b6 <MAX7219_clear>
+ cbc:	08 95       	ret
+
+00000cbe <main>:
+int activity=0;
+
+
+int main(void)
+{
+	DDRB |= 1 << 5; // Configuring PB5 / D13 as Output
+ cbe:	84 b1       	in	r24, 0x04	; 4
+ cc0:	80 62       	ori	r24, 0x20	; 32
+ cc2:	84 b9       	out	0x04, r24	; 4
+	DDRC = 0xFF;
+ cc4:	8f ef       	ldi	r24, 0xFF	; 255
+ cc6:	87 b9       	out	0x07, r24	; 7
+	UCSR0B |= RX_COMPLETE_INTERRUPT; //from usart header file
+ cc8:	e1 ec       	ldi	r30, 0xC1	; 193
+ cca:	f0 e0       	ldi	r31, 0x00	; 0
+ ccc:	80 81       	ld	r24, Z
+ cce:	80 68       	ori	r24, 0x80	; 128
+ cd0:	80 83       	st	Z, r24
+
+	   DDRD &= ~(1<<DDD2);  //set switches as inputs
+ cd2:	8a b1       	in	r24, 0x0a	; 10
+ cd4:	8b 7f       	andi	r24, 0xFB	; 251
+ cd6:	8a b9       	out	0x0a, r24	; 10
+	   DDRD &= ~(1<<DDD3);
+ cd8:	8a b1       	in	r24, 0x0a	; 10
+ cda:	87 7f       	andi	r24, 0xF7	; 247
+ cdc:	8a b9       	out	0x0a, r24	; 10
+	   DDRD &= ~(1<<DDD4);
+ cde:	8a b1       	in	r24, 0x0a	; 10
+ ce0:	8f 7e       	andi	r24, 0xEF	; 239
+ ce2:	8a b9       	out	0x0a, r24	; 10
+	   DDRD &= ~(1<<DDD5);
+ ce4:	8a b1       	in	r24, 0x0a	; 10
+ ce6:	8f 7d       	andi	r24, 0xDF	; 223
+ ce8:	8a b9       	out	0x0a, r24	; 10
+	   
+	   PCICR |= (1 << PCIE2); //enable PCIE2 bit in PCINT register
+ cea:	e8 e6       	ldi	r30, 0x68	; 104
+ cec:	f0 e0       	ldi	r31, 0x00	; 0
+ cee:	80 81       	ld	r24, Z
+ cf0:	84 60       	ori	r24, 0x04	; 4
+ cf2:	80 83       	st	Z, r24
+	   
+	   PCMSK2 |= (1 << PCINT18); //enable PCINT18 bit in Pin Change Mask Register 
+ cf4:	ed e6       	ldi	r30, 0x6D	; 109
+ cf6:	f0 e0       	ldi	r31, 0x00	; 0
+ cf8:	80 81       	ld	r24, Z
+ cfa:	84 60       	ori	r24, 0x04	; 4
+ cfc:	80 83       	st	Z, r24
+	   PCMSK2 |= (1 << PCINT19); //enable PCINT19 bit in Pin Change Mask Register 
+ cfe:	80 81       	ld	r24, Z
+ d00:	88 60       	ori	r24, 0x08	; 8
+ d02:	80 83       	st	Z, r24
+	   PCMSK2 |= (1 << PCINT20); //enable PCINT20 bit in Pin Change Mask Register 
+ d04:	80 81       	ld	r24, Z
+ d06:	80 61       	ori	r24, 0x10	; 16
+ d08:	80 83       	st	Z, r24
+	   PCMSK2 |= (1 << PCINT21); //enable PCINT21 bit in Pin Change Mask Register 
+ d0a:	80 81       	ld	r24, Z
+ d0c:	80 62       	ori	r24, 0x20	; 32
+ d0e:	80 83       	st	Z, r24
+	   
+	   sei(); //enable the global interrupts
+ d10:	78 94       	sei
+	   	USART_Init(); //calling function of USART initiate
+ d12:	0e 94 f4 00 	call	0x1e8	; 0x1e8 <USART_Init>
+	   	MAX7219_init(); //calling function of MAX7219 drier initiate
+ d16:	0e 94 73 00 	call	0xe6	; 0xe6 <MAX7219_init>
+	   	name_display(); //calling game name display function
+ d1a:	0e 94 0e 01 	call	0x21c	; 0x21c <name_display>
+		GameOver(); //calling game over display function
+ d1e:	0e 94 66 05 	call	0xacc	; 0xacc <GameOver>
+   
+    while (1) 
+    {   
+		blockgen(); //displaying the blocks according to the generated random number
+ d22:	0e 94 25 05 	call	0xa4a	; 0xa4a <blockgen>
+ d26:	fd cf       	rjmp	.-6      	; 0xd22 <main+0x64>
+
+00000d28 <__vector_5>:
+		
+    }
+
+}
+
+ISR(PCINT2_vect){
+ d28:	1f 92       	push	r1
+ d2a:	0f 92       	push	r0
+ d2c:	0f b6       	in	r0, 0x3f	; 63
+ d2e:	0f 92       	push	r0
+ d30:	11 24       	eor	r1, r1
+ d32:	8f 93       	push	r24
+ d34:	9f 93       	push	r25
+	
+	if (!(PIND &(1<<PIND2))){ //if button ROTATE pressed
+ d36:	4a 99       	sbic	0x09, 2	; 9
+ d38:	06 c0       	rjmp	.+12     	; 0xd46 <__vector_5+0x1e>
+		
+		
+		activity=1;
+ d3a:	81 e0       	ldi	r24, 0x01	; 1
+ d3c:	90 e0       	ldi	r25, 0x00	; 0
+ d3e:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+ d42:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+		
+		
+	}
+	if(!(PIND &(1<<PIND3)))//if button LEFT pressed
+ d46:	4b 99       	sbic	0x09, 3	; 9
+ d48:	06 c0       	rjmp	.+12     	; 0xd56 <__vector_5+0x2e>
+	{
+		
+		
+		activity =2;
+ d4a:	82 e0       	ldi	r24, 0x02	; 2
+ d4c:	90 e0       	ldi	r25, 0x00	; 0
+ d4e:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+ d52:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+		
+	}
+	if(!(PIND &(1<<PIND4)))  //if button RIGHT pressed
+ d56:	4c 99       	sbic	0x09, 4	; 9
+ d58:	06 c0       	rjmp	.+12     	; 0xd66 <__vector_5+0x3e>
+	{
+		
+	
+		activity=3;
+ d5a:	83 e0       	ldi	r24, 0x03	; 3
+ d5c:	90 e0       	ldi	r25, 0x00	; 0
+ d5e:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+ d62:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+		
+	}
+
+
+ d66:	9f 91       	pop	r25
+ d68:	8f 91       	pop	r24
+ d6a:	0f 90       	pop	r0
+ d6c:	0f be       	out	0x3f, r0	; 63
+ d6e:	0f 90       	pop	r0
+ d70:	1f 90       	pop	r1
+ d72:	18 95       	reti
+
+00000d74 <_exit>:
+ d74:	f8 94       	cli
+
+00000d76 <__stop_program>:
+ d76:	ff cf       	rjmp	.-2      	; 0xd76 <__stop_program>
