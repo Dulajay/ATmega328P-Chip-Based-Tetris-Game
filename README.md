@@ -3,21 +3,21 @@
 <img src="https://github.com/Dulajay/ATmega328P-Chip-Based-Tetris-Game/blob/main/tetris%20circuit.jpg" alt="Example Image" width="600" height="400">
 </div>
 
-# Project Introduction
+## Project Introduction
 In this project we have to create a single player arcade game called Tetris using AVR 
 microcontrollers. Tetris is a puzzle video game created by Soviet software engineer Alexey Pajitnov in 1984. In Tetris, players complete lines by moving differently shaped pieces (tetrominoes), which descend onto the playing field. The completed lines disappear and grant the player points, and the player can proceed to fill the vacated spaces. The game ends when the playing field is filled. The longer the player can delay this outcome, the higher their score will be.
 This is a simulation project that runs on computers using Proteus simulator software. Proteus is a computer software used to simulate, design and drawing electronic circuits. For program the microcontroller and other components we have used Atmel studio software.The Atmel Studio 7 is user friendly environment to write, build, and debug applications written in C/C++ or assembly code. It also connects seamlessly to the debuggers, programmers, and development kits that support AVR and SAM devices.
 
-# Tetrominoes
+## Tetrominoes
 These are the building blocks of the game. There 7 pieces that player can see inside the game.Player can move these pieces laterally to acsend them into desired place in the matrix.
 
 ![image](https://github.com/Dulajay/ATmega328P-Chip-Based-Tetris-Game/assets/151004273/a7940b3d-c98c-47cf-8572-7115a3e79070)
 
-# Objectives
+## Objectives
 Used various AVR Microcontroller functions to understand the design process and build the project.
 Demonstrate how to interact between various AVR related electronic components andachieve final results.
 
-# Components
+## Components
 - CPU – AVR MCU (Atmega328p) / Arduino UNO
 - 8x8 matrix led display 
 - BCD 7-segment display
@@ -26,14 +26,14 @@ Demonstrate how to interact between various AVR related electronic components an
 - Indicator led
 - Secondary MCU to generate random numbe
 
-# Functions
+## Functions
 - UART (Universal Asynchronous Receiver/Transmitter.) library files
 - MAX7219 driver library files
 - GPIO function
 - Timer /counter interrupts
 - Memory functions
 
-# Game Logic Implementation 
+## Game Logic Implementation 
 - Display the game letter by letter on the 8x8 display.
 - When requested from main MCU, the 2nd MCU will generate a random number 
 between 1-7 that each number represent a specific Tetris block.
@@ -50,7 +50,7 @@ place.
 - When a line is completed, it disappears, and the blocks placed above fall one line down. And 
 the score will be incremented by +1.
 
-# External interrupts using ISR
+## External interrupts using ISR
 In this game we wanted 4 control buttons and have to set them as external pin interrupts.Since there are only two INT pins (INT0, INT1) to use as interrupts we moved to use other pins to set control buttons.According to the atmega328p datasheet we observed that there are 23 PCINT pins and we have followed its instruction. 
 - changed PCIE2 bit of Pin Change Interrupt Control Register (PCICR).
 -  Configured Pin Change Mask Register (PCMSK) as follows.
@@ -87,12 +87,12 @@ Receiving characters over UART is very similar to transmitting them. In this cas
 
 ![image](https://github.com/Dulajay/ATmega328P-Chip-Based-Tetris-Game/assets/151004273/be1d73df-eac7-4455-b575-b67508c832d3)
 
-# Conclusion
+## Conclusion
 - We were able to completed almost every function of the project but there are few more functions to be developed to finish up the project.
 - We have done self-studies and learned many new concepts from YouTube and some web sites during this project such as UART, MAX7219, etc. also we learned how to read a datasheet and configure registers as we want was a big advantage to develop this project.
 - In addition to that we have learned that divide the whole project into sub systems and add them all together in the end was the best approach to develop the project.
 
-# Acknowledgments
+## Acknowledgments
 
 Special thanks to the following individuals who contributed to this project:
 - My awesome team members for their hard work and dedication.
