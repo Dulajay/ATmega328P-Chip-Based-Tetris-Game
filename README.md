@@ -1,6 +1,6 @@
 # ATmega328P-Chip-Based-Tetris-Game
 <div style="text-align:center">
-<img src="https://github.com/Dulajay/ATmega328P-Chip-Based-Tetris-Game/blob/main/tetris%20circuit.jpg" alt="Example Image" width="600" height="400">
+<img src="https://github.com/Dulajay/ATmega328P-Chip-Based-Tetris-Game/blob/main/Tetris%20circuit.jpg" alt="Example Image" width="600" height="400">
 </div>
 
 ## Project Introduction
